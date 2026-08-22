@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>دیجیتالایز | پیشرفته‌ترین خدمات دیجیتال</title>
     <meta name="theme-color" content="#6c5ce7" />
+    
+    <!-- ============================================================
+    ✅ متا تگ تایید گوگل (برای سئو)
+    ============================================================ -->
+    <meta name="google-site-verification" content="y7NcLk8QCGdBXBhUk1mlFl2vWwTJ56TrEoRAu3n6YwM" />
+    
     <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRGlnaXRhbGl6ZSIsInNob3J0X25hbWUiOiJEaWdpdGFsaXplIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwib3JpZW50YXRpb24iOiJwb3J0cmFpdCIsImJhY2tncm91bmRfY29sb3IiOiIjNmM1Y2U3IiwidGhlbWVfY29sb3IiOiIjNmM1Y2U3IiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbCw8c3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDUxMiA1MTInPjxyZWN0IHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyByeD0nNjQnIGZpbGw9JyM2YzVjZTcnLz48dGV4dCB4PScyNTYnIHk9JzM4MCcgZm9udC1mYW1pbHk9J3NhbnMtc2VyaWYnIGZvbnQtc2l6ZT0nMjUwJyBmaWxsPSd3aGl0ZScgdGV4dC1hbmNob3I9J21pZGRsZScgZm9udC13ZWlnaHQ9J2JvbGQnPkQ8L3RleHQ+PC9zdmc+" type="image/svg+xml" sizes="512x512" />
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='64' fill='%236c5ce7'/><text x='256' y='380' font-family='sans-serif' font-size='250' fill='white' text-anchor='middle' font-weight='bold'>D</text></svg>" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -39,6 +45,7 @@
             --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
             --max-width: 1200px;
             --sidebar-width: 320px;
+            --header-height: 80px;
         }
         [data-theme="dark"] {
             --bg-primary: #0d0d1a;
@@ -85,7 +92,7 @@
             color: #fff;
         }
 
-   /* ============================================================
+        /* ============================================================
            اسکرول‌بار
            ============================================================ */
         ::-webkit-scrollbar {
@@ -100,12 +107,10 @@
             border-radius: var(--radius-full);
         }
 
-
-
         /* ============================================================
            دکمه‌های شناور
            ============================================================ */
- .floating-group {
+        .floating-group {
             position: fixed;
             bottom: 28px;
             left: 28px;
@@ -116,10 +121,9 @@
         }
         .floating-btn {
             padding: 14px 22px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid var(--glass-border);
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
             border-radius: var(--radius-full);
             color: var(--text-primary);
             font-weight: 700;
@@ -133,8 +137,6 @@
             font-family: var(--font);
             min-width: 140px;
             justify-content: center;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
         }
         .floating-btn:hover {
             background: var(--accent);
@@ -156,7 +158,6 @@
             opacity: 0.9;
             transform: scale(1.06);
         }
-
 
         /* ============================================================
            هدر
@@ -329,10 +330,6 @@
             font-weight: 600 !important;
             box-shadow: 0 8px 24px rgba(108, 92, 231, 0.25);
         }
-        .nav-cta:hover {
-            opacity: 0.9;
-            transform: scale(0.96);
-        }
 
         /* ============================================================
            منوی کناری (Sidebar)
@@ -484,13 +481,13 @@
            ============================================================ */
         .page {
             display: none;
-            padding: calc(var(--header-height) + 40px) 0 60px;
-            animation: fadeSlide 0.6s ease;
+            padding: 80px 0 60px;
+            animation: fadeUp 0.5s ease;
         }
         .page.active {
             display: block;
         }
-        @keyframes fadeSlide {
+        @keyframes fadeUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -501,7 +498,7 @@
             }
         }
 
-
+        
            /* ============================================================
            محصولات و نمونه‌کارها
            ============================================================ */
@@ -742,10 +739,6 @@
             padding: 8px 18px;
             font-size: 0.85rem;
         }
-        .btn-lg {
-            padding: 18px 44px;
-            font-size: 1.1rem;
-        }
 
         /* ============================================================
            محصولات
@@ -826,21 +819,6 @@
             font-size: 0.9rem;
             margin-right: 8px;
         }
-        .badge {
-            display: inline-block;
-            padding: 4px 14px;
-            border-radius: 60px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-        .badge-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-        .badge-success {
-            background: var(--success);
-            color: #fff;
-        }
 
         /* ============================================================
            سبد خرید
@@ -871,51 +849,6 @@
         }
 
         /* ============================================================
-           پرداخت
-           ============================================================ */
-        .payment-section {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 32px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* ============================================================
-           QR Code
-           ============================================================ */
-        .qr-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            padding: 20px;
-            background: var(--bg-primary);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
-        }
-        .qr-container #qrcode {
-            padding: 12px;
-            background: #fff;
-            border-radius: 12px;
-        }
-
-        /* ============================================================
-           اسکرین‌شات
-           ============================================================ */
-        .screenshot-area {
-            border: 2px dashed var(--border);
-            border-radius: var(--radius-sm);
-            padding: 20px;
-            text-align: center;
-            margin-top: 16px;
-            transition: all var(--transition);
-        }
-        .screenshot-area:hover {
-            border-color: var(--accent);
-        }
-
-        /* ============================================================
            فوتر
            ============================================================ */
         footer {
@@ -931,14 +864,6 @@
         /* ============================================================
            ریسپانسیو
            ============================================================ */
-        @media (max-width: 992px) {
-            .nav-menu {
-                display: none;
-            }
-            .product-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
         @media (max-width: 768px) {
             .header-inner {
                 flex-wrap: wrap;
@@ -1011,22 +936,10 @@
         /* ============================================================
            انیمیشن‌ها
            ============================================================ */
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
         @keyframes rotateBg {
             to {
                 transform: rotate(360deg);
             }
-        }
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
         }
     </style>
 </head>
@@ -2110,7 +2023,7 @@
         });
 
         // ============================================================
-        // 11. فرم ثبت سفارش
+        // 11. فرم ثبت سفارش (با ارسال به پنل ادمین)
         // ============================================================
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -2121,17 +2034,39 @@
                 document.getElementById('orderMsg').style.color = 'var(--danger)';
                 return;
             }
+
+            // ============================================================
+            // 🔥 ارسال پیام به پنل ادمین (با localStorage)
+            // ============================================================
+            function sendMessageToPanel(name, phone, email, message) {
+                let messages = JSON.parse(localStorage.getItem('admin_messages') || '[]');
+                messages.push({
+                    id: Date.now(),
+                    name: name,
+                    phone: phone,
+                    email: email || '',
+                    message: message,
+                    date: new Date().toLocaleString('fa-IR')
+                });
+                localStorage.setItem('admin_messages', JSON.stringify(messages));
+            }
+
+            const service = document.getElementById('service').value;
+            const desc = document.getElementById('desc').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            // ارسال به پنل ادمین
+            sendMessageToPanel(name, phone, email, `نوع خدمات: ${service}\nتوضیحات: ${desc}`);
+
+            // ذخیره در localStorage (برای خود سایت)
             const data = {
-                name,
-                phone,
-                email: document.getElementById('email').value.trim(),
-                service: document.getElementById('service').value,
-                desc: document.getElementById('desc').value.trim(),
+                name, phone, email, service, desc,
                 date: new Date().toLocaleString('fa-IR')
             };
             let orders = JSON.parse(localStorage.getItem('digitalize_orders') || '[]');
             orders.push(data);
             localStorage.setItem('digitalize_orders', JSON.stringify(orders));
+
             document.getElementById('orderMsg').textContent = '✅ سفارش شما با موفقیت ثبت شد!';
             document.getElementById('orderMsg').style.color = 'var(--success)';
             addNotification(`📋 سفارش جدید از ${name} ثبت شد`);
