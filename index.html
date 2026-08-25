@@ -5,14 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>دیجیتالایز | پیشرفته‌ترین خدمات دیجیتال</title>
     <meta name="theme-color" content="#6c5ce7" />
-    
-    <!-- ============================================================
-    ✅ متا تگ تایید گوگل (برای سئو)
-    ============================================================ -->
     <meta name="google-site-verification" content="y7NcLk8QCGdBXBhUk1mlFl2vWwTJ56TrEoRAu3n6YwM" />
-    
     <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRGlnaXRhbGl6ZSIsInNob3J0X25hbWUiOiJEaWdpdGFsaXplIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwib3JpZW50YXRpb24iOiJwb3J0cmFpdCIsImJhY2tncm91bmRfY29sb3IiOiIjNmM1Y2U3IiwidGhlbWVfY29sb3IiOiIjNmM1Y2U3IiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbCw8c3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDUxMiA1MTInPjxyZWN0IHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyByeD0nNjQnIGZpbGw9JyM2YzVjZTcnLz48dGV4dCB4PScyNTYnIHk9JzM4MCcgZm9udC1mYW1pbHk9J3NhbnMtc2VyaWYnIGZvbnQtc2l6ZT0nMjUwJyBmaWxsPSd3aGl0ZScgdGV4dC1hbmNob3I9J21pZGRsZScgZm9udC13ZWlnaHQ9J2JvbGQnPkQ8L3RleHQ+PC9zdmc+" type="image/svg+xml" sizes="512x512" />
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='64' fill='%236c5ce7'/><text x='256' y='380' font-family='sans-serif' font-size='250' fill='white' text-anchor='middle' font-weight='bold'>D</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
@@ -29,7 +25,6 @@
             --text-muted: #8a8aa8;
             --accent: #6c5ce7;
             --accent-light: #a29bfe;
-            --accent-dark: #5a4bd1;
             --accent-gradient: linear-gradient(135deg, #6c5ce7, #fd79a8, #fdcb6e);
             --success: #00b894;
             --danger: #e17055;
@@ -60,14 +55,8 @@
             --shadow-hover: 0 16px 56px rgba(108, 92, 231, 0.15);
             --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.4);
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
             background: var(--bg-primary);
@@ -78,678 +67,279 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        ::selection {
-            background: var(--accent);
-            color: #fff;
-        }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+        a { text-decoration: none; color: inherit; }
+        ::selection { background: var(--accent); color: #fff; }
 
         /* ============================================================
            اسکرول‌بار
            ============================================================ */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-gradient);
-            border-radius: var(--radius-full);
-        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-gradient); border-radius: var(--radius-full); }
 
         /* ============================================================
            دکمه‌های شناور
            ============================================================ */
         .floating-group {
-            position: fixed;
-            bottom: 28px;
-            left: 28px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            position: fixed; bottom: 28px; left: 28px; z-index: 9999;
+            display: flex; flex-direction: column; gap: 12px;
         }
         .floating-btn {
-            padding: 14px 22px;
-            background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-full);
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font);
-            min-width: 140px;
-            justify-content: center;
+            padding: 14px 22px; background: var(--bg-card);
+            backdrop-filter: blur(16px); border: 1px solid var(--border);
+            border-radius: var(--radius-full); color: var(--text-primary);
+            font-weight: 700; font-size: 0.9rem; cursor: pointer;
+            box-shadow: var(--shadow-lg); transition: all var(--transition);
+            display: flex; align-items: center; gap: 10px;
+            font-family: var(--font); min-width: 140px; justify-content: center;
         }
-        .floating-btn:hover {
-            background: var(--accent);
-            color: #fff;
-            transform: scale(1.06) translateY(-3px);
-            box-shadow: 0 12px 40px rgba(108, 92, 231, 0.3);
-        }
-        .floating-btn.install-btn {
-            background: var(--accent-gradient);
-            color: #fff;
-            border: none;
-            box-shadow: 0 8px 30px rgba(108, 92, 231, 0.35);
-            display: none;
-        }
-        .floating-btn.install-btn.show {
-            display: flex;
-        }
-        .floating-btn.install-btn:hover {
-            opacity: 0.9;
-            transform: scale(1.06);
-        }
+        .floating-btn:hover { background: var(--accent); color: #fff; transform: scale(1.06) translateY(-3px); box-shadow: 0 12px 40px rgba(108,92,231,0.3); }
+        .floating-btn.install-btn { background: var(--accent-gradient); color: #fff; border: none; box-shadow: 0 8px 30px rgba(108,92,231,0.35); display: none; }
+        .floating-btn.install-btn.show { display: flex; }
+        .floating-btn.install-btn:hover { opacity: 0.9; transform: scale(1.06); }
 
         /* ============================================================
            هدر
            ============================================================ */
         .header {
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: 12px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(16px);
-            background: rgba(var(--bg-secondary), 0.92);
-            transition: all var(--transition);
-            box-shadow: var(--shadow);
+            background: var(--bg-secondary); border-bottom: 1px solid var(--border);
+            padding: 12px 0; position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(16px); background: rgba(var(--bg-secondary), 0.92);
+            transition: all var(--transition); box-shadow: var(--shadow);
         }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .header-left { display: flex; align-items: center; gap: 16px; }
         .sidebar-toggle {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-primary);
-            padding: 4px;
-            transition: all var(--transition);
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding: 8px;
+            background: none; border: none; font-size: 1.8rem; cursor: pointer;
+            color: var(--text-primary); padding: 4px; transition: all var(--transition);
+            display: flex; flex-direction: column; gap: 5px; padding: 8px;
         }
-        .sidebar-toggle span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background: var(--text-primary);
-            border-radius: 4px;
-            transition: all var(--transition);
-        }
-        .sidebar-toggle:hover span {
-            background: var(--accent);
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .sidebar-toggle span { display: block; width: 28px; height: 3px; background: var(--text-primary); border-radius: 4px; transition: all var(--transition); }
+        .sidebar-toggle:hover span { background: var(--accent); }
+        .logo { display: flex; align-items: center; gap: 12px; }
         .logo-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--accent-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: #fff;
-            box-shadow: 0 8px 24px rgba(108, 92, 231, 0.3);
-            -webkit-text-fill-color: #fff;
+            width: 44px; height: 44px; background: var(--accent-gradient);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; font-weight: 900; color: #fff;
+            box-shadow: 0 8px 24px rgba(108,92,231,0.3); -webkit-text-fill-color: #fff;
         }
         .logo-text {
-            font-size: 1.6rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 1.6rem; font-weight: 900; letter-spacing: -0.5px;
+            background: var(--accent-gradient); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
         }
-        .logo-text small {
-            display: block;
-            font-size: 0.6rem;
-            font-weight: 400;
-            -webkit-text-fill-color: var(--text-muted);
-            letter-spacing: 1px;
-        }
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .logo-text small { display: block; font-size: 0.6rem; font-weight: 400; -webkit-text-fill-color: var(--text-muted); letter-spacing: 1px; }
+        .header-actions { display: flex; align-items: center; gap: 12px; }
         .notif-btn {
-            background: none;
-            border: none;
-            font-size: 1.4rem;
-            cursor: pointer;
-            color: var(--text-secondary);
-            position: relative;
-            transition: all var(--transition);
-            padding: 8px;
+            background: none; border: none; font-size: 1.4rem; cursor: pointer;
+            color: var(--text-secondary); position: relative; transition: all var(--transition); padding: 8px;
         }
-        .notif-btn:hover {
-            color: var(--accent);
-        }
+        .notif-btn:hover { color: var(--accent); }
         .notif-btn .badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--danger);
-            color: #fff;
-            font-size: 0.6rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 50%;
-            min-width: 20px;
-            text-align: center;
+            position: absolute; top: 0; right: 0; background: var(--danger);
+            color: #fff; font-size: 0.6rem; font-weight: 700; padding: 2px 8px;
+            border-radius: 50%; min-width: 20px; text-align: center;
         }
         .user-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--bg-primary);
-            padding: 6px 16px;
-            border-radius: var(--radius-full);
-            border: 1px solid var(--border);
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
+            display: flex; align-items: center; gap: 8px;
+            background: var(--bg-primary); padding: 6px 16px;
+            border-radius: var(--radius-full); border: 1px solid var(--border);
+            font-weight: 600; font-size: 0.85rem; cursor: pointer;
             transition: all var(--transition);
         }
-        .user-badge:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
+        .user-badge:hover { border-color: var(--accent); color: var(--accent); }
         .user-badge .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.9rem;
+            width: 32px; height: 32px; border-radius: 50%;
+            background: var(--accent-gradient); display: flex; align-items: center;
+            justify-content: center; color: #fff; font-weight: 700; font-size: 0.9rem;
             -webkit-text-fill-color: #fff;
         }
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+        .nav-menu { display: flex; align-items: center; gap: 4px; }
         .nav-menu a {
-            padding: 8px 16px;
-            border-radius: 60px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            transition: all var(--transition);
-            cursor: pointer;
+            padding: 8px 16px; border-radius: 60px; font-weight: 500;
+            font-size: 0.9rem; color: var(--text-secondary);
+            transition: all var(--transition); cursor: pointer;
         }
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            background: var(--accent);
-            color: #fff;
-        }
+        .nav-menu a:hover, .nav-menu a.active { background: var(--accent); color: #fff; }
         .nav-cta {
-            background: var(--accent-gradient);
-            color: #fff !important;
-            padding: 8px 20px !important;
-            font-weight: 600 !important;
-            box-shadow: 0 8px 24px rgba(108, 92, 231, 0.25);
+            background: var(--accent-gradient); color: #fff !important;
+            padding: 8px 20px !important; font-weight: 600 !important;
+            box-shadow: 0 8px 24px rgba(108,92,231,0.25);
         }
 
         /* ============================================================
-           منوی کناری (Sidebar)
+           منوی کناری
            ============================================================ */
         .sidebar-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 2000;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(8px);
-            display: none;
-            opacity: 0;
-            transition: opacity var(--transition);
+            position: fixed; inset: 0; z-index: 2000;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
+            display: none; opacity: 0; transition: opacity var(--transition);
         }
-        .sidebar-overlay.active {
-            display: block;
-            opacity: 1;
-        }
+        .sidebar-overlay.active { display: block; opacity: 1; }
         .sidebar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: var(--sidebar-width);
-            height: 100vh;
-            background: var(--bg-secondary);
-            z-index: 2001;
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: var(--shadow-lg);
-            overflow-y: auto;
-            padding: 24px 20px;
+            position: fixed; top: 0; right: 0; width: var(--sidebar-width);
+            height: 100vh; background: var(--bg-secondary); z-index: 2001;
+            transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: var(--shadow-lg); overflow-y: auto; padding: 24px 20px;
             border-left: 1px solid var(--border);
         }
-        .sidebar.open {
-            transform: translateX(0);
-        }
-        .sidebar .sidebar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 20px;
-        }
-        .sidebar .sidebar-header .logo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .sidebar .sidebar-close {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: all var(--transition);
-        }
-        .sidebar .sidebar-close:hover {
-            color: var(--text-primary);
-            transform: rotate(90deg);
-        }
-        .sidebar .sidebar-user {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 16px;
-            background: var(--bg-primary);
-            border-radius: var(--radius-sm);
-            margin-bottom: 20px;
-            border: 1px solid var(--border);
-        }
-        .sidebar .sidebar-user .avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 700;
-            -webkit-text-fill-color: #fff;
-        }
-        .sidebar .sidebar-user .info .name {
-            font-weight: 700;
-        }
-        .sidebar .sidebar-user .info .phone {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-        .sidebar .sidebar-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .sidebar .sidebar-nav a {
-            padding: 12px 16px;
-            border-radius: var(--radius-sm);
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: all var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-        }
-        .sidebar .sidebar-nav a:hover,
-        .sidebar .sidebar-nav a.active {
-            background: var(--accent);
-            color: #fff;
-        }
-        .sidebar .sidebar-nav a .icon {
-            font-size: 1.2rem;
-        }
-        .sidebar .sidebar-divider {
-            height: 1px;
-            background: var(--border);
-            margin: 16px 0;
-        }
-        .sidebar .sidebar-notif {
-            padding: 12px 16px;
-            background: var(--bg-primary);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
-            margin-top: 12px;
-        }
-        .sidebar .sidebar-notif .notif-item {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .sidebar .sidebar-notif .notif-item:last-child {
-            border-bottom: none;
-        }
-        .sidebar .sidebar-notif .notif-item .time {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
+        .sidebar.open { transform: translateX(0); }
+        .sidebar .sidebar-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+        .sidebar .sidebar-header .logo { font-size: 1.2rem; font-weight: 800; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .sidebar .sidebar-close { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); transition: all var(--transition); }
+        .sidebar .sidebar-close:hover { color: var(--text-primary); transform: rotate(90deg); }
+        .sidebar .sidebar-user { display: flex; align-items: center; gap: 14px; padding: 16px; background: var(--bg-primary); border-radius: var(--radius-sm); margin-bottom: 20px; border: 1px solid var(--border); }
+        .sidebar .sidebar-user .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent-gradient); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; font-weight: 700; -webkit-text-fill-color: #fff; }
+        .sidebar .sidebar-user .info .name { font-weight: 700; }
+        .sidebar .sidebar-user .info .phone { font-size: 0.8rem; color: var(--text-muted); }
+        .sidebar .sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+        .sidebar .sidebar-nav a { padding: 12px 16px; border-radius: var(--radius-sm); color: var(--text-secondary); font-weight: 500; transition: all var(--transition); display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .sidebar .sidebar-nav a:hover, .sidebar .sidebar-nav a.active { background: var(--accent); color: #fff; }
+        .sidebar .sidebar-nav a .icon { font-size: 1.2rem; width: 24px; text-align: center; }
+        .sidebar .sidebar-divider { height: 1px; background: var(--border); margin: 16px 0; }
+        .sidebar .sidebar-notif { padding: 12px 16px; background: var(--bg-primary); border-radius: var(--radius-sm); border: 1px solid var(--border); margin-top: 12px; }
+        .sidebar .sidebar-notif .notif-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 10px; }
+        .sidebar .sidebar-notif .notif-item:last-child { border-bottom: none; }
+        .sidebar .sidebar-notif .notif-item .time { font-size: 0.7rem; color: var(--text-muted); }
 
         /* ============================================================
            صفحات
            ============================================================ */
-        .page {
-            display: none;
-            padding: 80px 0 60px;
-            animation: fadeUp 0.5s ease;
+        .page { display: none; padding: 80px 0 60px; animation: fadeUp 0.5s ease; }
+        .page.active { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ============================================================
+           مودال‌ها
+           ============================================================ */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 3000;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(12px);
+            display: none; align-items: center; justify-content: center; padding: 24px;
         }
-        .page.active {
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: var(--bg-secondary); border-radius: var(--radius);
+            max-width: 540px; width: 100%; max-height: 90vh; overflow-y: auto;
+            padding: 36px 32px; border: 1px solid var(--border);
+            box-shadow: 0 32px 80px rgba(0,0,0,0.3); animation: modalIn 0.4s ease;
+        }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(30px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--border); }
+        .modal-header h2 { font-size: 1.6rem; font-weight: 800; }
+        .modal-close { background: none; border: none; font-size: 2.2rem; cursor: pointer; color: var(--text-muted); transition: all var(--transition); line-height: 1; }
+        .modal-close:hover { color: var(--text-primary); transform: rotate(90deg) scale(1.1); }
+
+        /* ============================================================
+           فرم‌ها
+           ============================================================ */
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; color: var(--text-secondary); }
+        .form-control {
+            width: 100%; padding: 14px 18px; border-radius: var(--radius-sm);
+            border: 2px solid var(--border); background: var(--bg-input);
+            color: var(--text-primary); font-size: 1rem;
+            transition: all var(--transition); font-family: var(--font);
+        }
+        .form-control:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(108,92,231,0.08); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 10px; padding: 14px 32px; border-radius: var(--radius-full);
+            font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
+            transition: all var(--transition); font-family: var(--font);
+        }
+        .btn-primary { background: var(--accent-gradient); color: #fff; box-shadow: 0 8px 30px rgba(108,92,231,0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 48px rgba(108,92,231,0.4); }
+        .btn-success { background: var(--success); color: #fff; }
+        .btn-success:hover { background: #00a381; transform: translateY(-2px); }
+        .btn-danger { background: var(--danger); color: #fff; }
+        .btn-danger:hover { background: #d63031; transform: translateY(-2px); }
+        .btn-secondary { background: var(--bg-primary); color: var(--text-primary); border: 2px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-block { width: 100%; justify-content: center; }
+        .btn-sm { padding: 8px 18px; font-size: 0.85rem; }
+        .btn-lg { padding: 18px 44px; font-size: 1.1rem; }
+
+        /* ============================================================
+           محصولات
+           ============================================================ */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; margin-top: 20px; }
+        .product-card {
+            background: var(--bg-card); border-radius: var(--radius); overflow: hidden;
+            border: 1px solid var(--border); transition: all var(--transition);
+            box-shadow: var(--shadow);
+        }
+        .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .product-card .image {
+            width: 100%; height: 200px; background: var(--accent-gradient);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.4rem; font-weight: 700; position: relative;
+        }
+        .product-card .image .qr-btn {
+            position: absolute; bottom: 12px; left: 12px;
+            background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+            width: 44px; height: 44px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.2rem; cursor: pointer;
+            transition: all var(--transition); color: #fff;
+        }
+        .product-card .image .qr-btn:hover { background: rgba(255,255,255,0.35); transform: scale(1.1); }
+        .product-card .content { padding: 24px; }
+        .product-card .content h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+        .product-card .content .desc { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px; }
+        .product-card .price { font-weight: 700; color: var(--accent); font-size: 1.3rem; }
+        .product-card .old-price { text-decoration: line-through; color: var(--text-muted); font-size: 0.9rem; margin-right: 8px; }
+
+        /* ============================================================
+           خدمات - بخش ویژه
+           ============================================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .service-card .service-icon {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 12px;
             display: block;
         }
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
-        
-           /* ============================================================
-           محصولات و نمونه‌کارها
+        /* ============================================================
+           نمونه‌کارها
            ============================================================ */
-        .product-grid,
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 28px;
             margin-top: 20px;
         }
-        .product-card,
         .portfolio-card {
-            background: var(--bg-secondary);
-            border-radius: var(--radius);
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-            transition: all var(--transition);
-            box-shadow: var(--shadow-secondary);
-        }
-        .product-card:hover,
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-        .product-card .image,
-        .portfolio-card .image {
-            width: 100%;
-            height: 200px;
-            background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.4rem;
-            font-weight: 700;
-            position: relative;
-            overflow: hidden;
-        }
-        .product-card .image::after,
-        .portfolio-card .image::after {
-            content: '✨';
-            position: absolute;
-            bottom: 12px;
-            right: 16px;
-            font-size: 1.8rem;
-            opacity: 0.3;
-        }
-        .product-card .content,
-        .portfolio-card .content {
-            padding: 22px 24px 24px;
-        }
-        .product-card .price {
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-        .product-card .old-price {
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-right: 8px;
-        }
-        .badge {
-            display: inline-block;
-            padding: 4px 16px;
-            border-radius: var(--radius-full);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .badge-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-        .badge-success {
-            background: #00b894;
-            color: #fff;
-        }
-        .badge-warning {
-            background: #fdcb6e;
-            color: #0a0a1a;
-        }
-
-
-        /* ============================================================
-           مودال‌ها
-           ============================================================ */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 3000;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(12px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-        .modal-overlay.active {
-            display: flex;
-        }
-        .modal-content {
-            background: var(--bg-secondary);
-            border-radius: var(--radius);
-            max-width: 540px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 36px 32px;
-            border: 1px solid var(--border);
-            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
-            animation: modalIn 0.4s ease;
-        }
-        @keyframes modalIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95) translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--border);
-        }
-        .modal-header h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-        }
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 2.2rem;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: all var(--transition);
-            line-height: 1;
-        }
-        .modal-close:hover {
-            color: var(--text-primary);
-            transform: rotate(90deg) scale(1.1);
-        }
-
-        /* ============================================================
-           فرم‌ها
-           ============================================================ */
-        .form-group {
-            margin-bottom: 18px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 6px;
-            color: var(--text-secondary);
-        }
-        .form-control {
-            width: 100%;
-            padding: 14px 18px;
-            border-radius: var(--radius-sm);
-            border: 2px solid var(--border);
-            background: var(--bg-input);
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: all var(--transition);
-            font-family: var(--font);
-        }
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.08);
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: var(--font);
-        }
-        .btn-primary {
-            background: var(--accent-gradient);
-            color: #fff;
-            box-shadow: 0 8px 30px rgba(108, 92, 231, 0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 48px rgba(108, 92, 231, 0.4);
-        }
-        .btn-success {
-            background: var(--success);
-            color: #fff;
-        }
-        .btn-success:hover {
-            background: #00a381;
-            transform: translateY(-2px);
-        }
-        .btn-danger {
-            background: var(--danger);
-            color: #fff;
-        }
-        .btn-danger:hover {
-            background: #d63031;
-            transform: translateY(-2px);
-        }
-        .btn-secondary {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            border: 2px solid var(--border);
-        }
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .btn-block {
-            width: 100%;
-            justify-content: center;
-        }
-        .btn-sm {
-            padding: 8px 18px;
-            font-size: 0.85rem;
-        }
-
-        /* ============================================================
-           محصولات
-           ============================================================ */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 28px;
-            margin-top: 20px;
-        }
-        .product-card {
             background: var(--bg-card);
             border-radius: var(--radius);
             overflow: hidden;
@@ -757,190 +347,100 @@
             transition: all var(--transition);
             box-shadow: var(--shadow);
         }
-        .product-card:hover {
+        .portfolio-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
         }
-        .product-card .image {
+        .portfolio-card .portfolio-image {
             width: 100%;
-            height: 200px;
+            height: 180px;
             background: var(--accent-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            position: relative;
         }
-        .product-card .image .qr-btn {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all var(--transition);
-            color: #fff;
+        .portfolio-card .portfolio-content {
+            padding: 20px 24px 24px;
         }
-        .product-card .image .qr-btn:hover {
-            background: rgba(255, 255, 255, 0.35);
-            transform: scale(1.1);
-        }
-        .product-card .content {
-            padding: 24px;
-        }
-        .product-card .content h3 {
-            font-size: 1.2rem;
+        .portfolio-card .portfolio-content h4 {
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 4px;
         }
-        .product-card .content .desc {
+        .portfolio-card .portfolio-content p {
             color: var(--text-secondary);
             font-size: 0.9rem;
-            margin-bottom: 8px;
         }
-        .product-card .price {
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 1.3rem;
+        .badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 600;
         }
-        .product-card .old-price {
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-right: 8px;
-        }
+        .badge-primary { background: var(--accent); color: #fff; }
+        .badge-success { background: var(--success); color: #fff; }
+        .badge-warning { background: var(--warning); color: #0a0a0a; }
 
         /* ============================================================
            سبد خرید
            ============================================================ */
         .cart-summary {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 28px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 120px;
+            background: var(--bg-card); border-radius: var(--radius);
+            padding: 28px; border: 1px solid var(--border);
+            box-shadow: var(--shadow); position: sticky; top: 120px;
         }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        .cart-total {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .cart-item:last-child { border-bottom: none; }
+        .cart-total { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
 
         /* ============================================================
            فوتر
            ============================================================ */
         footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 32px 0;
-            margin-top: 40px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            background: var(--bg-secondary); border-top: 1px solid var(--border);
+            padding: 32px 0; margin-top: 40px; text-align: center;
+            color: var(--text-muted); font-size: 0.9rem;
         }
+        footer .footer-social { display: flex; justify-content: center; gap: 16px; margin-top: 12px; }
+        footer .footer-social a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: all var(--transition);
+        }
+        footer .footer-social a:hover { color: var(--accent); }
 
         /* ============================================================
            ریسپانسیو
            ============================================================ */
         @media (max-width: 768px) {
-            .header-inner {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            .logo-text {
-                font-size: 1.2rem;
-            }
-            .logo-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-            .sidebar {
-                width: 100%;
-                max-width: 320px;
-            }
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            .modal-content {
-                padding: 24px 20px;
-            }
-            .floating-group {
-                bottom: 16px;
-                left: 16px;
-                gap: 8px;
-            }
-            .floating-btn {
-                padding: 10px 16px;
-                font-size: 0.75rem;
-                min-width: 100px;
-            }
-            .header-actions .user-badge span {
-                display: none;
-            }
-            .cart-summary {
-                position: static;
-            }
+            .header-inner { flex-wrap: wrap; gap: 8px; }
+            .logo-text { font-size: 1.2rem; }
+            .logo-icon { width: 36px; height: 36px; font-size: 1rem; }
+            .sidebar { width: 100%; max-width: 320px; }
+            .product-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .modal-content { padding: 24px 20px; }
+            .floating-group { bottom: 16px; left: 16px; gap: 8px; }
+            .floating-btn { padding: 10px 16px; font-size: 0.75rem; min-width: 100px; }
+            .header-actions .user-badge span { display: none; }
+            .cart-summary { position: static; }
         }
         @media (max-width: 480px) {
-            .logo-text {
-                font-size: 1rem;
-            }
-            .logo-text small {
-                font-size: 0.5rem;
-            }
-            .sidebar {
-                max-width: 100%;
-            }
-        }
-
-        /* ============================================================
-           اسکرول‌بار
-           ============================================================ */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: var(--radius-full);
+            .logo-text { font-size: 1rem; }
+            .logo-text small { font-size: 0.5rem; }
+            .sidebar { max-width: 100%; }
         }
 
         /* ============================================================
            انیمیشن‌ها
            ============================================================ */
-        @keyframes rotateBg {
-            to {
-                transform: rotate(360deg);
-            }
-        }
+        @keyframes rotateBg { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
@@ -949,45 +449,43 @@
     دکمه‌های شناور
     ============================================================ -->
     <div class="floating-group">
-        <button class="floating-btn install-btn" id="installBtn">📲 نصب اپلیکیشن</button>
+        <button class="floating-btn install-btn" id="installBtn"><i class="fas fa-download"></i> نصب اپلیکیشن</button>
         <button class="floating-btn" onclick="toggleTheme()">
-            <span id="themeIcon">🌙</span> <span id="themeText">شب</span>
+            <span id="themeIcon"><i class="fas fa-moon"></i></span> <span id="themeText">شب</span>
         </button>
     </div>
 
     <!-- ============================================================
-    منوی کناری (Sidebar)
+    منوی کناری
     ============================================================ -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="logo">⚡ دیجیتالایز</div>
-            <button class="sidebar-close" onclick="closeSidebar()">&times;</button>
+            <div class="logo"><i class="fas fa-bolt"></i> دیجیتالایز</div>
+            <button class="sidebar-close" onclick="closeSidebar()"><i class="fas fa-times"></i></button>
         </div>
-
         <div class="sidebar-user" id="sidebarUser">
-            <div class="avatar" id="sidebarAvatar">👤</div>
+            <div class="avatar" id="sidebarAvatar"><i class="fas fa-user"></i></div>
             <div class="info">
                 <div class="name" id="sidebarName">مهمان</div>
                 <div class="phone" id="sidebarPhone">وارد حساب کاربری شوید</div>
             </div>
         </div>
-
         <nav class="sidebar-nav">
-            <a class="active" data-page="home" onclick="closeSidebar()"><span class="icon">🏠</span> خانه</a>
-            <a data-page="products" onclick="closeSidebar()"><span class="icon">🛒</span> محصولات</a>
-            <a data-page="about" onclick="closeSidebar()"><span class="icon">🔹</span> درباره</a>
-            <a data-page="support" onclick="closeSidebar()"><span class="icon">🤖</span> پشتیبانی</a>
-            <a data-page="contact" onclick="closeSidebar()"><span class="icon">📞</span> تماس</a>
-            <a data-page="cart" onclick="closeSidebar()"><span class="icon">🛍️</span> سبد خرید</a>
+            <a class="active" data-page="home" onclick="closeSidebar()"><span class="icon"><i class="fas fa-home"></i></span> خانه</a>
+            <a data-page="products" onclick="closeSidebar()"><span class="icon"><i class="fas fa-box"></i></span> محصولات</a>
+            <a data-page="services" onclick="closeSidebar()"><span class="icon"><i class="fas fa-concierge-bell"></i></span> خدمات</a>
+            <a data-page="portfolio" onclick="closeSidebar()"><span class="icon"><i class="fas fa-images"></i></span> نمونه‌کارها</a>
+            <a data-page="about" onclick="closeSidebar()"><span class="icon"><i class="fas fa-info-circle"></i></span> درباره</a>
+            <a data-page="support" onclick="closeSidebar()"><span class="icon"><i class="fas fa-headset"></i></span> پشتیبانی</a>
+            <a data-page="contact" onclick="closeSidebar()"><span class="icon"><i class="fas fa-envelope"></i></span> تماس</a>
+            <a data-page="cart" onclick="closeSidebar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span> سبد خرید</a>
         </nav>
-
         <div class="sidebar-divider"></div>
-
         <div class="sidebar-notif">
-            <h4 style="font-size:0.9rem; margin-bottom:8px;">🔔 اعلان‌ها</h4>
+            <h4 style="font-size:0.9rem; margin-bottom:8px;"><i class="fas fa-bell"></i> اعلان‌های من</h4>
             <div id="sidebarNotifications">
-                <div class="notif-item">👋 به دیجیتالایز خوش آمدید!</div>
+                <div class="notif-item"><i class="fas fa-hand-wave"></i> به دیجیتالایز خوش آمدید!</div>
             </div>
         </div>
     </div>
@@ -1009,27 +507,25 @@
                     </div>
                 </div>
             </div>
-
             <div class="header-actions">
                 <button class="notif-btn" onclick="toggleNotifications()" title="اعلان‌ها">
-                    🔔
+                    <i class="fas fa-bell"></i>
                     <span class="badge" id="notifBadge">0</span>
                 </button>
                 <div class="user-badge" onclick="openModal('authModal')">
-                    <span class="avatar" id="headerAvatar">👤</span>
+                    <span class="avatar" id="headerAvatar"><i class="fas fa-user"></i></span>
                     <span id="headerUserName">ورود</span>
                 </div>
             </div>
-
             <nav class="nav-menu" id="navMenu">
                 <a class="active" data-page="home">خانه</a>
                 <a data-page="products">محصولات</a>
+                <a data-page="services">خدمات</a>
                 <a data-page="portfolio">نمونه‌کارها</a>
                 <a data-page="about">درباره</a>
-                <a data-page="services">خدمات</a>
                 <a data-page="support">پشتیبانی</a>
                 <a data-page="contact">تماس</a>
-                <a data-page="cart" class="nav-cta">🛒 سبد خرید</a>
+                <a data-page="cart" class="nav-cta"><i class="fas fa-shopping-cart"></i> سبد خرید</a>
             </nav>
         </div>
     </header>
@@ -1051,26 +547,22 @@
                             با تخصص در طراحی مدرن، تحویل سریع و کیفیت بالا، حضور آنلاین شما را متحول می‌کنیم.
                         </p>
                         <div style="display:flex; gap:14px; flex-wrap:wrap;">
-                            <a class="btn btn-primary" data-page="products">🛒 مشاهده محصولات</a>
-                            <a class="btn btn-secondary" data-page="contact">📋 شروع پروژه</a>
+                            <a class="btn btn-primary" data-page="products"><i class="fas fa-box"></i> مشاهده محصولات</a>
+                            <a class="btn btn-secondary" data-page="contact"><i class="fas fa-envelope"></i> شروع پروژه</a>
                         </div>
                         <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:48px; padding-top:32px; border-top:1px solid var(--border);">
-                            <div><strong style="font-size:2rem; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">۵+</strong><br><span style="color:var(--text-muted); font-size:0.85rem;">سال تجربه</span></div>
-                            <div><strong style="font-size:2rem; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">۱۲۰+</strong><br><span style="color:var(--text-muted); font-size:0.85rem;">پروژه موفق</span></div>
-                            <div><strong style="font-size:2rem; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">۹۹%</strong><br><span style="color:var(--text-muted); font-size:0.85rem;">رضایت مشتری</span></div>
+                            <div><strong style="font-size:2rem; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">5+</strong><br><span style="color:var(--text-muted); font-size:0.85rem;">سال تجربه</span></div>
+                            <div><strong style="font-size:2rem; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">120+</strong><br><span style="color:var(--text-muted); font-size:0.85rem;">پروژه موفق</span></div>
+                            <div><strong style="font-size:2rem; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">99%</strong><br><span style="color:var(--text-muted); font-size:0.85rem;">رضایت مشتری</span></div>
                         </div>
                     </div>
                     <div style="display:flex; justify-content:center; align-items:center;">
                         <div style="width:100%; max-width:480px; aspect-ratio:4/3; background:var(--bg-card); border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow-lg); display:flex; align-items:center; justify-content:center; padding:40px; text-align:center; position:relative; overflow:hidden;">
                             <div style="position:absolute; inset:-50%; background:conic-gradient(from 0deg, transparent, rgba(108,92,231,0.05), transparent, rgba(108,92,231,0.05), transparent); animation:rotateBg 20s linear infinite;"></div>
                             <div style="position:relative; z-index:1;">
-                                <span style="font-size:3rem; display:block; margin-bottom:12px;">🚀</span>
+                                <i class="fas fa-rocket" style="font-size:3rem; display:block; margin-bottom:12px; color:var(--accent);"></i>
                                 <p style="font-weight:700; font-size:1.2rem;">حضور آنلاین حرفه‌ای</p>
                                 <p style="font-size:0.9rem; color:var(--text-muted);">طراحی شده با دیجیتالایز</p>
-                            <div style="margin-top:20px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-                                <span style="background:var(--accent-gradient); color:#fff; padding:4px 16px; border-radius:var(--radius-full); font-size:0.75rem; font-weight:600;">سایت</span>
-                                <span style="background:var(--success); color:#fff; padding:4px 16px; border-radius:var(--radius-full); font-size:0.75rem; font-weight:600;">اپلیکیشن</span>
-                                <span style="background:var(--warning); color:#fff; padding:4px 16px; border-radius:var(--radius-full); font-size:0.75rem; font-weight:600;">ربات</span>
                             </div>
                         </div>
                     </div>
@@ -1081,137 +573,29 @@
         <!-- ======== صفحه ۲: محصولات ======== -->
         <section id="page-products" class="page">
             <div class="container">
-                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;">🛒 محصولات حرفه‌ای</h2>
+                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;"><i class="fas fa-box"></i> محصولات حرفه‌ای</h2>
                 <p style="color:var(--text-secondary); margin-bottom:40px;">قالب‌های آماده، سایت‌های اختصاصی و اپلیکیشن‌های موبایل و دسکتاپ</p>
-
-                <div class="product-grid">
-                    <div class="product-card">
-                        <div class="image" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);">
-                            سایت فروشگاهی
-                            <button class="qr-btn" onclick="showQR('سایت فروشگاهی حرفه‌ای','۴۸,۵۰۰,۰۰۰ تومان','سایت فروشگاهی کامل با پنل مدیریت و درگاه پرداخت')">📱</button>
-                        </div>
-                        <div class="content">
-                            <h3>سایت فروشگاهی حرفه‌ای</h3>
-                            <p class="desc">سایت کامل فروشگاهی با پنل مدیریت، درگاه پرداخت و سیستم پیگیری سفارش</p>
-                            <div class="price">۴۸,۵۰۰,۰۰۰ <span class="old-price">۶۵,۰۰۰,۰۰۰</span></div>
-                            <button class="btn btn-primary btn-sm btn-block add-to-cart" style="margin-top:12px;" data-name="سایت فروشگاهی حرفه‌ای" data-price="48500000">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="image" style="background:linear-gradient(135deg,#fd79a8,#fdcb6e);">
-                            اپلیکیشن موبایل
-                            <button class="qr-btn" onclick="showQR('اپلیکیشن موبایل','۳۲,۰۰۰,۰۰۰ تومان','اپلیکیشن اندروید و iOS با طراحی اختصاصی')">📱</button>
-                        </div>
-                        <div class="content">
-                            <h3>اپلیکیشن موبایل</h3>
-                            <p class="desc">اپلیکیشن اندروید و iOS با طراحی اختصاصی و تجربه کاربری عالی</p>
-                            <div class="price">۳۲,۰۰۰,۰۰۰ <span class="old-price">۴۵,۰۰۰,۰۰۰</span></div>
-                            <button class="btn btn-primary btn-sm btn-block add-to-cart" style="margin-top:12px;" data-name="اپلیکیشن موبایل" data-price="32000000">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="image" style="background:linear-gradient(135deg,#00b894,#00cec9);">
-                            اپلیکیشن دسکتاپ
-                            <button class="qr-btn" onclick="showQR('اپلیکیشن دسکتاپ','۲۸,۵۰۰,۰۰۰ تومان','اپلیکیشن ویندوز، مک و لینوکس با عملکرد بالا')">📱</button>
-                        </div>
-                        <div class="content">
-                            <h3>اپلیکیشن دسکتاپ</h3>
-                            <p class="desc">اپلیکیشن ویندوز، مک و لینوکس با عملکرد بالا و رابط کاربری زیبا</p>
-                            <div class="price">۲۸,۵۰۰,۰۰۰ <span class="old-price">۳۸,۰۰۰,۰۰۰</span></div>
-                            <button class="btn btn-primary btn-sm btn-block add-to-cart" style="margin-top:12px;" data-name="اپلیکیشن دسکتاپ" data-price="28500000">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="image" style="background:linear-gradient(135deg,#e17055,#d63031);">
-                            قالب لاکچری
-                            <button class="qr-btn" onclick="showQR('قالب لاکچری','۱۲,۵۰۰,۰۰۰ تومان','قالب اختصاصی با طراحی فوق‌مدرن')">📱</button>
-                        </div>
-                        <div class="content">
-                            <h3>قالب لاکچری اختصاصی</h3>
-                            <p class="desc">قالب اختصاصی با طراحی فوق‌مدرن، واکنش‌گرا و بهینه برای سئو</p>
-                            <div class="price">۱۲,۵۰۰,۰۰۰ <span class="old-price">۱۸,۰۰۰,۰۰۰</span></div>
-                            <button class="btn btn-primary btn-sm btn-block add-to-cart" style="margin-top:12px;" data-name="قالب لاکچری اختصاصی" data-price="12500000">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="image" style="background:linear-gradient(135deg,#6c5ce7,#fd79a8);">
-                            سئو پیشرفته
-                            <button class="qr-btn" onclick="showQR('سئو پیشرفته','۹,۸۰۰,۰۰۰ تومان','خدمات کامل سئو و بهینه‌سازی گوگل')">📱</button>
-                        </div>
-                        <div class="content">
-                            <h3>سئو پیشرفته</h3>
-                            <p class="desc">خدمات کامل سئو، بهینه‌سازی داخلی و خارجی، تولید محتوا و لینک‌سازی</p>
-                            <div class="price">۹,۸۰۰,۰۰۰ <span class="old-price">۱۴,۰۰۰,۰۰۰</span></div>
-                            <button class="btn btn-primary btn-sm btn-block add-to-cart" style="margin-top:12px;" data-name="سئو پیشرفته" data-price="9800000">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="image" style="background:linear-gradient(135deg,#fdcb6e,#f59e0b);">
-                            ربات هوشمند
-                            <button class="qr-btn" onclick="showQR('ربات هوشمند','۱۸,۰۰۰,۰۰۰ تومان','ربات پشتیبانی هوشمند با هوش مصنوعی')">📱</button>
-                        </div>
-                        <div class="content">
-                            <h3>ربات هوشمند</h3>
-                            <p class="desc">ربات پشتیبانی هوشمند با هوش مصنوعی، پاسخگویی خودکار ۲۴/۷</p>
-                            <div class="price">۱۸,۰۰۰,۰۰۰ <span class="old-price">۲۵,۰۰۰,۰۰۰</span></div>
-                            <button class="btn btn-primary btn-sm btn-block add-to-cart" style="margin-top:12px;" data-name="ربات هوشمند" data-price="18000000">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
+                <div class="product-grid" id="productsGrid">
+                    <!-- محصولات توسط JavaScript بارگذاری می‌شوند -->
                 </div>
             </div>
         </section>
 
-
-                <!-- ======== صفحه ۲: خدمات ======== -->
+        <!-- ======== صفحه ۳: خدمات ======== -->
         <section id="page-services" class="page">
             <div class="container">
-                <h2 style="font-size:2.4rem; font-weight:800; margin-bottom:8px;">✨ خدمات ما</h2>
+                <h2 style="font-size:2.4rem; font-weight:800; margin-bottom:8px;"><i class="fas fa-concierge-bell"></i> خدمات ما</h2>
                 <p style="color:var(--text-secondary); margin-bottom:40px; font-size:1.05rem;">از طراحی سایت تا اپلیکیشن و سئو، همه‌چیز برای رشد دیجیتال شما</p>
-                <div class="grid-3">
-                    <div class="glass-card reveal reveal-delay-1">
-                        <span class="icon">🌐</span>
-                        <h3>طراحی سایت</h3>
-                        <p>سایت حرفه‌ای، واکنش‌گرا و بهینه برای موبایل با بالاترین کیفیت</p>
-                    </div>
-                    <div class="glass-card reveal reveal-delay-2">
-                        <span class="icon">📱</span>
-                        <h3>اپلیکیشن موبایل</h3>
-                        <p>اندروید و iOS با تجربه کاربری عالی و طراحی مدرن</p>
-                    </div>
-                    <div class="glass-card reveal reveal-delay-3">
-                        <span class="icon">💻</span>
-                        <h3>اپلیکیشن دسکتاپ</h3>
-                        <p>ویندوز، مک و لینوکس با عملکرد بالا و پنل مدیریت</p>
-                    </div>
-                    <div class="glass-card reveal reveal-delay-1">
-                        <span class="icon">🎨</span>
-                        <h3>فروش قالب آماده</h3>
-                        <p>قالب‌های اختصاصی و لاکچری برای وب‌سایت با قیمت مناسب</p>
-                    </div>
-                    <div class="glass-card reveal reveal-delay-2">
-                        <span class="icon">🔍</span>
-                        <h3>سئو و بازاریابی</h3>
-                        <p>بهبود رتبه گوگل و جذب ترافیک هدفمند برای کسب‌وکار شما</p>
-                    </div>
-                    <div class="glass-card reveal reveal-delay-3">
-                        <span class="icon">🤖</span>
-                        <h3>ربات پشتیبانی</h3>
-                        <p>پاسخ‌گویی خودکار و هوشمند در روبیکا و تلگرام</p>
-                    </div>
+                <div class="services-grid" id="servicesGrid">
+                    <!-- خدمات توسط JavaScript بارگذاری می‌شوند -->
                 </div>
             </div>
         </section>
 
-
-        <!-- ======== صفحه ۳: درباره ======== -->
+        <!-- ======== صفحه ۴: درباره ======== -->
         <section id="page-about" class="page">
             <div class="container">
-                <h2 style="font-size:2.4rem; font-weight:800; margin-bottom:12px;">🔹 درباره دیجیتالایز</h2>
+                <h2 style="font-size:2.4rem; font-weight:800; margin-bottom:12px;"><i class="fas fa-info-circle"></i> درباره دیجیتالایز</h2>
                 <p style="max-width:720px; color:var(--text-secondary); font-size:1.1rem; margin-bottom:24px;">
                     ما یک تیم حرفه‌ای با بیش از ۵ سال تجربه در طراحی سایت، اپلیکیشن موبایل و دسکتاپ هستیم. 
                     هدف ما ارائه راه‌حل‌های سریع، امن و مقرون‌به‌صرفه برای کسب‌وکارهای کوچک و بزرگ است. 
@@ -1219,123 +603,85 @@
                     بهترین سایت ممکن را به شما تقدیم می‌کنیم.
                 </p>
                 <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px;">
-                    <span style="background:var(--accent-gradient); color:#fff; padding:8px 24px; border-radius:60px; font-weight:600;">🎯 مأموریت: تحول دیجیتال</span>
-                    <span style="background:var(--glass-bg); backdrop-filter:blur(8px); border:1px solid var(--glass-border); padding:8px 24px; border-radius:60px;">💎 ارزش‌ها: شفافیت، تعهد، خلاقیت</span>
-                    <span style="background:var(--glass-bg); backdrop-filter:blur(8px); border:1px solid var(--glass-border); padding:8px 24px; border-radius:60px;">🚀 چشم‌انداز: رهبری در صنعت دیجیتال</span>
+                    <span style="background:var(--accent-gradient); color:#fff; padding:8px 24px; border-radius:60px; font-weight:600;"><i class="fas fa-bullseye"></i> مأموریت: تحول دیجیتال</span>
+                    <span style="background:var(--bg-card); border:1px solid var(--border); padding:8px 24px; border-radius:60px;"><i class="fas fa-gem"></i> ارزش‌ها: شفافیت، تعهد، خلاقیت</span>
+                    <span style="background:var(--bg-card); border:1px solid var(--border); padding:8px 24px; border-radius:60px;"><i class="fas fa-rocket"></i> چشم‌انداز: رهبری در صنعت دیجیتال</span>
                 </div>
                 <div style="display:flex; gap:24px; flex-wrap:wrap; font-size:1.05rem;">
-                    <p><strong>📢 کانال روبیکا:</strong> <a href="https://rubika.ir/digitalize" target="_blank" style="color:var(--accent); font-weight:600;">@digitalize</a></p>
-                    <p><strong>🤖 ربات:</strong> <a href="https://rubika.ir/digitalize_bot" target="_blank" style="color:var(--accent); font-weight:600;">@digitalize_bot</a></p>
-                    <p><strong>📩 ارتباط مستقیم:</strong> <a href="https://t.me/digitalize_admin" target="_blank" style="color:var(--accent); font-weight:600;">@digitalize_admin</a></p>
+                    <p><strong><i class="fas fa-paper-plane"></i> کانال روبیکا:</strong> <a href="https://rubika.ir/digitalize" target="_blank" style="color:var(--accent); font-weight:600;">@digitalize</a></p>
+                    <p><strong><i class="fas fa-robot"></i> ربات:</strong> <a href="https://rubika.ir/digitalize_bot" target="_blank" style="color:var(--accent); font-weight:600;">@digitalize_bot</a></p>
+                    <p><strong><i class="fas fa-headset"></i> ارتباط مستقیم:</strong> <a href="https://t.me/digitalize_admin" target="_blank" style="color:var(--accent); font-weight:600;">@digitalize_admin</a></p>
                 </div>
             </div>
         </section>
 
-
-           <!-- ======== صفحه ۴: نمونه‌کارها ======== -->
+        <!-- ======== صفحه ۵: نمونه‌کارها ======== -->
         <section id="page-portfolio" class="page">
             <div class="container">
-                <h2 style="font-size:2.4rem; font-weight:800; margin-bottom:8px;">📂 نمونه‌کارهای برتر</h2>
+                <h2 style="font-size:2.4rem; font-weight:800; margin-bottom:8px;"><i class="fas fa-images"></i> نمونه‌کارهای برتر</h2>
                 <p style="color:var(--text-secondary); margin-bottom:40px; font-size:1.05rem;">پروژه‌های انجام‌شده برای مشتریان با بالاترین کیفیت</p>
-                <div class="portfolio-grid">
-                    <div class="portfolio-card reveal reveal-delay-1">
-                        <div class="image" style="background:linear-gradient(135deg,#1e293b,#334155);">فروشگاه ارگانیک</div>
-                        <div class="content">
-                            <h3>فروشگاه محصولات ارگانیک</h3>
-                            <p style="color:var(--text-secondary);">سایت فروشگاهی با پرداخت آنلاین</p>
-                            <span class="badge badge-success">فروشگاهی</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-card reveal reveal-delay-2">
-                        <div class="image" style="background:linear-gradient(135deg,#1e293b,#475569);">شرکت مهندسی</div>
-                        <div class="content">
-                            <h3>سایت مدیریت هتل و هتل‌داری</h3>
-                            <p style="color:var(--text-secondary);">مدیریت هتل به صورت الکترونیکی</p>
-                            <span class="badge badge-primary">شرکتی</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-card reveal reveal-delay-3">
-                        <div class="image" style="background:linear-gradient(135deg,#1e293b,#64748b);">اپلیکیشن موبایل</div>
-                        <div class="content">
-                            <h3>اپلیکیشن فروشگاه آنلاین</h3>
-                            <p style="color:var(--text-secondary);">تبدیل سایت به اپلیکیشن حرفه‌ای</p>
-                            <span class="badge badge-warning">اپلیکیشن</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-card reveal reveal-delay-1">
-                        <div class="image" style="background:linear-gradient(135deg,#1e293b,#2d3436);">سایت آپلودینگ</div>
-                        <div class="content">
-                            <h3>سایت آپلود فایل</h3>
-                            <p style="color:var(--text-secondary);">آپلود فایل و دریافت لینک با پنل مدیریت</p>
-                            <span class="badge badge-primary">پنل‌محور</span>
-                        </div>
-                    </div>
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- نمونه‌کارها توسط JavaScript بارگذاری می‌شوند -->
                 </div>
             </div>
         </section>
 
-
-
-        <!-- ======== صفحه ۴: پشتیبانی ======== -->
+        <!-- ======== صفحه ۶: پشتیبانی ======== -->
         <section id="page-support" class="page">
             <div class="container">
-                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;">🤖 پشتیبانی هوشمند</h2>
+                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;"><i class="fas fa-headset"></i> پشتیبانی هوشمند</h2>
                 <p style="color:var(--text-secondary); margin-bottom:40px;">سوال خود را بپرسید، تیم پشتیبانی هوشمند ما پاسخ شما را می‌دهد.</p>
-
                 <div style="background:var(--bg-card); border-radius:var(--radius); padding:32px; border:1px solid var(--border); box-shadow:var(--shadow-lg);">
                     <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
-                        <span style="font-size:2.8rem;">🤖</span>
+                        <i class="fas fa-robot" style="font-size:2.8rem; color:var(--accent);"></i>
                         <div>
                             <h3 style="font-size:1.4rem; font-weight:700;">پشتیبانی هوشمند دیجیتالایز</h3>
-                            <p style="color:var(--text-muted); font-size:0.9rem;">۲۴/۷ در خدمت شما هستیم</p>
+                            <p style="color:var(--text-muted); font-size:0.9rem;">24/7 در خدمت شما هستیم</p>
                         </div>
                     </div>
-
                     <div style="display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 20px;">
-                        <button class="btn btn-secondary btn-sm" onclick="setReply('قیمت طراحی سایت چقدر است؟')">💰 قیمت سایت</button>
-                        <button class="btn btn-secondary btn-sm" onclick="setReply('هزینه اپلیکیشن چقدر است؟')">📱 هزینه اپ</button>
-                        <button class="btn btn-secondary btn-sm" onclick="setReply('نمونه‌کارهای شما را ببینم')">🎯 نمونه‌کار</button>
-                        <button class="btn btn-secondary btn-sm" onclick="setReply('زمان تحویل چقدر است؟')">⏳ زمان</button>
-                        <button class="btn btn-secondary btn-sm" onclick="setReply('ربات پشتیبانی چیست؟')">🤖 ربات</button>
-                        <button class="btn btn-secondary btn-sm" onclick="setReply('سئو برای کسب و کار ما چه می کند و قیمت ان چقدر است؟')">🌐 سئو</button>
-                        <button class="btn btn-secondary btn-sm" onclick="setReply('تخفیف ویژه دارید؟')">🎁 تخفیف</button>
+                        <button class="btn btn-secondary btn-sm" onclick="setReply('قیمت طراحی سایت چقدر است؟')"><i class="fas fa-money-bill"></i> قیمت سایت</button>
+                        <button class="btn btn-secondary btn-sm" onclick="setReply('هزینه اپلیکیشن چقدر است؟')"><i class="fas fa-mobile-alt"></i> هزینه اپ</button>
+                        <button class="btn btn-secondary btn-sm" onclick="setReply('نمونه‌کارهای شما را ببینم')"><i class="fas fa-images"></i> نمونه‌کار</button>
+                        <button class="btn btn-secondary btn-sm" onclick="setReply('زمان تحویل چقدر است؟')"><i class="fas fa-clock"></i> زمان</button>
+                        <button class="btn btn-secondary btn-sm" onclick="setReply('ربات پشتیبانی چیست؟')"><i class="fas fa-robot"></i> ربات</button>
+                        <button class="btn btn-secondary btn-sm" onclick="setReply('سئو برای کسب و کار ما چه می کند؟')"><i class="fas fa-search"></i> سئو</button>
+                        <button class="btn btn-secondary btn-sm" onclick="setReply('تخفیف ویژه دارید؟')"><i class="fas fa-gift"></i> تخفیف</button>
                     </div>
-
                     <div style="display:flex; gap:12px;">
                         <input type="text" id="supportInput" class="form-control" placeholder="سوال خود را بنویسید..." style="flex:1;">
-                        <button class="btn btn-primary" onclick="handleSupport()">ارسال</button>
+                        <button class="btn btn-primary" onclick="handleSupport()"><i class="fas fa-paper-plane"></i> ارسال</button>
                     </div>
                     <div id="supportResponse" style="margin-top:16px; padding:16px 22px; border-radius:var(--radius-sm); background:var(--bg-input); border-right:4px solid var(--accent); color:var(--text-secondary); min-height:50px;">
-                        💬 در خدمت شما هستم ...
+                        <i class="fas fa-comment"></i> در خدمت شما هستم ...
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======== صفحه ۵: تماس ======== -->
+        <!-- ======== صفحه ۷: تماس ======== -->
         <section id="page-contact" class="page">
             <div class="container">
-                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;">📞 ثبت سفارش</h2>
+                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;"><i class="fas fa-envelope"></i> ثبت سفارش</h2>
                 <p style="color:var(--text-secondary); margin-bottom:40px;">برای ثبت سفارش یا مشاوره، از فرم زیر استفاده کنید.</p>
-
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
                     <div>
                         <div style="background:var(--bg-card); border-radius:var(--radius); padding:32px; border:1px solid var(--border); box-shadow:var(--shadow);">
                             <form id="orderForm">
                                 <div class="form-group">
-                                    <label>نام و نام خانوادگی *</label>
+                                    <label><i class="fas fa-user"></i> نام و نام خانوادگی *</label>
                                     <input type="text" id="name" class="form-control" required placeholder="نام خود را وارد کنید">
                                 </div>
                                 <div class="form-group">
-                                    <label>شماره تماس *</label>
+                                    <label><i class="fas fa-phone"></i> شماره تماس *</label>
                                     <input type="text" id="phone" class="form-control" required placeholder="شماره تماس">
                                 </div>
                                 <div class="form-group">
-                                    <label>ایمیل (اختیاری)</label>
+                                    <label><i class="fas fa-envelope"></i> ایمیل (اختیاری)</label>
                                     <input type="email" id="email" class="form-control" placeholder="ایمیل">
                                 </div>
                                 <div class="form-group">
-                                    <label>نوع خدمات</label>
+                                    <label><i class="fas fa-tag"></i> نوع خدمات</label>
                                     <select id="service" class="form-control">
                                         <option>سایت فروشگاهی</option>
                                         <option>سایت شرکتی</option>
@@ -1346,52 +692,51 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>توضیحات پروژه</label>
+                                    <label><i class="fas fa-align-left"></i> توضیحات پروژه</label>
                                     <textarea id="desc" rows="4" class="form-control" placeholder="توضیحات خود را بنویسید..."></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block">🚀 ثبت سفارش</button>
+                                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-rocket"></i> ثبت سفارش</button>
                             </form>
                             <div id="orderMsg" style="margin-top:16px; font-weight:bold;"></div>
                         </div>
                     </div>
                     <div>
                         <div style="background:var(--bg-card); border-radius:var(--radius); padding:32px; border:1px solid var(--border); box-shadow:var(--shadow); height:fit-content;">
-                            <h3 style="margin-top:0;">یا از فرم هوشمند استفاده کنید</h3>
-                            <a href="https://forms.gle/n5X3Q6P73X69ucPV6" target="_blank" class="btn btn-secondary btn-block" style="margin-top:12px;">📋 ثبت سفارش با فرم هوشمند</a>
+                            <h3 style="margin-top:0;"><i class="fas fa-brain"></i> یا از فرم هوشمند استفاده کنید</h3>
+                            <a href="https://forms.gle/n5X3Q6P73X69ucPV6" target="_blank" class="btn btn-secondary btn-block" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i> ثبت سفارش با فرم هوشمند</a>
                             <hr style="border: none; border-top: 1px solid var(--border); margin: 24px 0;">
-                            <p><strong>📢 کانال روبیکا:</strong><br><a href="https://rubika.ir/digitalize" target="_blank" style="color:var(--accent);">@digitalize</a></p>
-                            <p><strong>🤖 ربات پشتیبانی:</strong><br><a href="https://rubika.ir/digitalize_bot" target="_blank" style="color:var(--accent);">@digitalize_bot</a></p>
-                            <p><strong>📩 ارتباط مستقیم:</strong><br><a href="https://t.me/digitalize_admin" target="_blank" style="color:var(--accent);">@digitalize_admin</a></p>
+                            <p><strong><i class="fas fa-paper-plane"></i> کانال روبیکا:</strong><br><a href="https://rubika.ir/digitalize" target="_blank" style="color:var(--accent);">@digitalize</a></p>
+                            <p><strong><i class="fas fa-robot"></i> ربات پشتیبانی:</strong><br><a href="https://rubika.ir/digitalize_bot" target="_blank" style="color:var(--accent);">@digitalize_bot</a></p>
+                            <p><strong><i class="fas fa-headset"></i> ارتباط مستقیم:</strong><br><a href="https://t.me/digitalize_admin" target="_blank" style="color:var(--accent);">@digitalize_admin</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======== صفحه ۶: سبد خرید و پرداخت ======== -->
+        <!-- ======== صفحه ۸: سبد خرید ======== -->
         <section id="page-cart" class="page">
             <div class="container">
-                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;">🛒 سبد خرید</h2>
+                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;"><i class="fas fa-shopping-cart"></i> سبد خرید</h2>
                 <p style="color:var(--text-secondary); margin-bottom:40px;">محصولات خود را مرور کنید و پرداخت را انجام دهید.</p>
-
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
                     <div>
                         <div style="background:var(--bg-card); border-radius:var(--radius); padding:24px; border:1px solid var(--border); box-shadow:var(--shadow);" id="cartItems">
-                            <p style="color:var(--text-secondary);">سبد خرید شما خالی است.</p>
+                            <p style="color:var(--text-secondary);"><i class="fas fa-info-circle"></i> سبد خرید شما خالی است.</p>
                         </div>
                     </div>
                     <div>
                         <div style="background:var(--bg-card); border-radius:var(--radius); padding:28px; border:1px solid var(--border); box-shadow:var(--shadow); position:sticky; top:120px;">
-                            <h3 style="margin-bottom:16px;">خلاصه سبد خرید</h3>
+                            <h3 style="margin-bottom:16px;"><i class="fas fa-receipt"></i> خلاصه سبد خرید</h3>
                             <div id="cartSummary">
                                 <p style="color:var(--text-secondary);">هیچ محصولی در سبد خرید نیست.</p>
                             </div>
                             <hr style="border: none; border-top: 1px solid var(--border); margin: 16px 0;">
                             <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.2rem;">
                                 <span>جمع کل:</span>
-                                <span id="cartTotal" style="font-size:1.6rem; font-weight:800; color:var(--accent);">۰ تومان</span>
+                                <span id="cartTotal" style="font-size:1.6rem; font-weight:800; color:var(--accent);">0 تومان</span>
                             </div>
-                            <button class="btn btn-success btn-block" id="checkoutBtn" style="margin-top:16px;">💳 پرداخت و تسویه</button>
+                            <button class="btn btn-success btn-block" id="checkoutBtn" style="margin-top:16px;"><i class="fas fa-credit-card"></i> پرداخت و تسویه</button>
                         </div>
                     </div>
                 </div>
@@ -1406,28 +751,28 @@
     <div class="modal-overlay" id="authModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="authTitle">🔐 ورود / ثبت‌نام</h2>
-                <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+                <h2 id="authTitle"><i class="fas fa-lock"></i> ورود / ثبت‌نام</h2>
+                <button class="modal-close" onclick="closeModal('authModal')"><i class="fas fa-times"></i></button>
             </div>
             <div id="authBody">
                 <form id="authForm" onsubmit="handleAuth(event)">
                     <div class="form-group">
-                        <label>نام کاربری</label>
+                        <label><i class="fas fa-user"></i> نام کاربری</label>
                         <input type="text" id="authUsername" class="form-control" required placeholder="نام کاربری خود را وارد کنید">
                     </div>
                     <div class="form-group">
-                        <label>شماره تماس</label>
+                        <label><i class="fas fa-phone"></i> شماره تماس</label>
                         <input type="text" id="authPhone" class="form-control" required placeholder="شماره تماس">
                     </div>
                     <div class="form-group" id="otpGroup" style="display:none;">
-                        <label>کد تایید ۶ رقمی</label>
+                        <label><i class="fas fa-shield-alt"></i> کد تایید 6 رقمی</label>
                         <div style="display:flex; gap:10px; align-items:center;">
-                            <input type="text" id="authOtp" class="form-control" maxlength="6" placeholder="کد ۶ رقمی را وارد کنید" style="flex:1;">
-                            <button type="button" class="btn btn-secondary btn-sm" onclick="resendOtp()" style="white-space:nowrap;">ارسال مجدد</button>
+                            <input type="text" id="authOtp" class="form-control" maxlength="6" placeholder="کد 6 رقمی را وارد کنید" style="flex:1;">
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="resendOtp()" style="white-space:nowrap;"><i class="fas fa-redo"></i> ارسال مجدد</button>
                         </div>
                         <small style="color:var(--text-muted); display:block; margin-top:4px;">کد تایید به شماره شما ارسال شد</small>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block" id="authBtn">📱 دریافت کد تایید</button>
+                    <button type="submit" class="btn btn-primary btn-block" id="authBtn"><i class="fas fa-shield-alt"></i> دریافت کد تایید</button>
                 </form>
                 <div id="authMsg" style="margin-top:16px; font-weight:bold; text-align:center;"></div>
             </div>
@@ -1440,13 +785,13 @@
     <div class="modal-overlay" id="qrModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>📱 QR Code محصول</h2>
-                <button class="modal-close" onclick="closeModal('qrModal')">&times;</button>
+                <h2><i class="fas fa-qrcode"></i> QR Code محصول</h2>
+                <button class="modal-close" onclick="closeModal('qrModal')"><i class="fas fa-times"></i></button>
             </div>
             <div id="qrBody" style="display:flex; flex-direction:column; align-items:center; gap:16px;">
                 <div id="qrcode"></div>
                 <div id="qrDetails" style="text-align:center; color:var(--text-secondary);"></div>
-                <button class="btn btn-primary btn-sm" onclick="downloadQR()">📥 دانلود QR Code</button>
+                <button class="btn btn-primary btn-sm" onclick="downloadQR()"><i class="fas fa-download"></i> دانلود QR Code</button>
             </div>
         </div>
     </div>
@@ -1457,60 +802,56 @@
     <div class="modal-overlay" id="paymentModal">
         <div class="modal-content" style="max-width:560px;">
             <div class="modal-header">
-                <h2>💳 پرداخت</h2>
-                <button class="modal-close" onclick="closeModal('paymentModal')">&times;</button>
+                <h2><i class="fas fa-credit-card"></i> پرداخت</h2>
+                <button class="modal-close" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i></button>
             </div>
             <div id="paymentBody">
                 <div style="background:var(--bg-primary); border-radius:var(--radius-sm); padding:16px; margin-bottom:20px; text-align:center;">
                     <p style="font-weight:700; font-size:1.2rem;">مبلغ قابل پرداخت</p>
-                    <p style="font-size:2rem; font-weight:800; color:var(--accent);" id="paymentAmount">۰ تومان</p>
+                    <p style="font-size:2rem; font-weight:800; color:var(--accent);" id="paymentAmount">0 تومان</p>
                 </div>
-
                 <form id="paymentForm" onsubmit="handlePayment(event)">
                     <div class="form-group">
-                        <label>شماره کارت</label>
-                        <input type="text" id="cardNumber" class="form-control" maxlength="16" placeholder="۴ رقمی - ۴ رقمی - ۴ رقمی - ۴ رقمی" required>
+                        <label><i class="fas fa-credit-card"></i> شماره کارت</label>
+                        <input type="text" id="cardNumber" class="form-control" maxlength="16" placeholder="4 رقمی - 4 رقمی - 4 رقمی - 4 رقمی" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>تاریخ انقضا (ماه/سال)</label>
+                            <label><i class="fas fa-calendar-alt"></i> تاریخ انقضا (ماه/سال)</label>
                             <input type="text" id="cardExpiry" class="form-control" maxlength="5" placeholder="MM/YY" required>
                         </div>
                         <div class="form-group">
-                            <label>CVV2</label>
+                            <label><i class="fas fa-lock"></i> CVV2</label>
                             <input type="text" id="cardCvv" class="form-control" maxlength="4" placeholder="CVV2" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>نام دارنده کارت</label>
+                        <label><i class="fas fa-user"></i> نام دارنده کارت</label>
                         <input type="text" id="cardName" class="form-control" placeholder="نام و نام خانوادگی" required>
                     </div>
-                    <button type="submit" class="btn btn-success btn-block">💳 پرداخت</button>
+                    <button type="submit" class="btn btn-success btn-block"><i class="fas fa-credit-card"></i> پرداخت</button>
                 </form>
-
                 <div id="paymentMsg" style="margin-top:16px; font-weight:bold; text-align:center;"></div>
-
                 <div id="paymentOtpSection" style="display:none; margin-top:20px; padding-top:20px; border-top:2px solid var(--border);">
-                    <p style="font-weight:700; text-align:center; margin-bottom:12px;">🔐 کد تایید ۶ رقمی به شماره شما ارسال شد</p>
+                    <p style="font-weight:700; text-align:center; margin-bottom:12px;"><i class="fas fa-shield-alt"></i> کد تایید 6 رقمی به شماره شما ارسال شد</p>
                     <div style="display:flex; gap:12px;">
-                        <input type="text" id="paymentOtp" class="form-control" maxlength="6" placeholder="کد ۶ رقمی" style="flex:1;">
-                        <button class="btn btn-primary" onclick="verifyPayment()">✅ تایید</button>
+                        <input type="text" id="paymentOtp" class="form-control" maxlength="6" placeholder="کد 6 رقمی" style="flex:1;">
+                        <button class="btn btn-primary" onclick="verifyPayment()"><i class="fas fa-check"></i> تایید</button>
                     </div>
                     <div id="paymentOtpMsg" style="margin-top:12px; text-align:center; font-weight:bold;"></div>
                 </div>
-
                 <div id="screenshotSection" style="display:none; margin-top:20px; padding-top:20px; border-top:2px solid var(--border);">
                     <div class="screenshot-area" id="screenshotArea">
-                        <p style="font-weight:700; color:var(--success);">✅ پرداخت با موفقیت انجام شد!</p>
+                        <p style="font-weight:700; color:var(--success);"><i class="fas fa-check-circle"></i> پرداخت با موفقیت انجام شد!</p>
                         <p style="color:var(--text-secondary); font-size:0.9rem;">شماره تراکنش: <span id="transactionId">TRX-</span></p>
                         <div id="screenshotContent" style="margin-top:12px; padding:16px; background:var(--bg-primary); border-radius:var(--radius-sm); text-align:right;">
-                            <p><strong>📋 جزئیات پرداخت</strong></p>
+                            <p><strong><i class="fas fa-receipt"></i> جزئیات پرداخت</strong></p>
                             <p>محصول: <span id="receiptProduct">-</span></p>
                             <p>مبلغ: <span id="receiptAmount">-</span></p>
                             <p>تاریخ: <span id="receiptDate">-</span></p>
                             <p>شماره تراکنش: <span id="receiptTransaction">-</span></p>
                         </div>
-                        <button class="btn btn-primary btn-sm download-btn" onclick="downloadReceipt()">📥 دانلود رسید</button>
+                        <button class="btn btn-primary btn-sm download-btn" onclick="downloadReceipt()"><i class="fas fa-download"></i> دانلود رسید</button>
                     </div>
                 </div>
             </div>
@@ -1522,10 +863,16 @@
     ============================================================ -->
     <footer>
         <div class="container">
-            <span style="font-weight:700; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">⚡ دیجیتالایز</span>
+            <span style="font-weight:700; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"><i class="fas fa-bolt"></i> دیجیتالایز</span>
             <span style="margin:0 12px;">|</span>
-            تمامی حقوق محفوظ است © ۲۰۲۶
-            <span style="display:block; font-size:0.75rem; margin-top:4px; opacity:0.6;">طراحی و توسعه با ❤️ توسط تیم دیجیتالایز</span>
+            تمامی حقوق محفوظ است &copy; 2026
+            <span style="display:block; font-size:0.75rem; margin-top:4px; opacity:0.6;">طراحی و توسعه با <i class="fas fa-heart" style="color:var(--danger);"></i> توسط تیم دیجیتالایز</span>
+            <div class="footer-social">
+                <a href="#" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="توییتر"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="لینکدین"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://rubika.ir/digitalize" target="_blank"><i class="fas fa-comment-dots"></i></a>
+            </div>
         </div>
     </footer>
 
@@ -1542,15 +889,29 @@
             const next = current === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
-            document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
-            document.getElementById('themeText').textContent = next === 'dark' ? 'روز' : 'شب';
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            if (next === 'dark') {
+                icon.innerHTML = '<i class="fas fa-sun"></i>';
+                text.textContent = 'روز';
+            } else {
+                icon.innerHTML = '<i class="fas fa-moon"></i>';
+                text.textContent = 'شب';
+            }
         }
         (function() {
             const saved = localStorage.getItem('theme');
             if (saved) {
                 document.documentElement.setAttribute('data-theme', saved);
-                document.getElementById('themeIcon').textContent = saved === 'dark' ? '☀️' : '🌙';
-                document.getElementById('themeText').textContent = saved === 'dark' ? 'روز' : 'شب';
+                const icon = document.getElementById('themeIcon');
+                const text = document.getElementById('themeText');
+                if (saved === 'dark') {
+                    icon.innerHTML = '<i class="fas fa-sun"></i>';
+                    text.textContent = 'روز';
+                } else {
+                    icon.innerHTML = '<i class="fas fa-moon"></i>';
+                    text.textContent = 'شب';
+                }
             }
         })();
 
@@ -1578,7 +939,7 @@
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             const target = document.getElementById('page-' + pageId);
             if (target) target.classList.add('active');
-            document.querySelectorAll('.nav-menu a[data-page], .sidebar-nav a[data-page]').forEach(a => {
+            document.querySelectorAll('[data-page]').forEach(a => {
                 a.classList.toggle('active', a.dataset.page === pageId);
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1630,55 +991,79 @@
         function updateUserUI() {
             if (authUser) {
                 document.getElementById('headerUserName').textContent = authUser.username;
-                document.getElementById('headerAvatar').textContent = authUser.username.charAt(0).toUpperCase();
+                document.getElementById('headerAvatar').innerHTML = '<i class="fas fa-user"></i>';
                 document.getElementById('sidebarName').textContent = authUser.username;
                 document.getElementById('sidebarPhone').textContent = authUser.phone;
-                document.getElementById('sidebarAvatar').textContent = authUser.username.charAt(0).toUpperCase();
+                document.getElementById('sidebarAvatar').innerHTML = authUser.username.charAt(0).toUpperCase();
             } else {
                 document.getElementById('headerUserName').textContent = 'ورود';
-                document.getElementById('headerAvatar').textContent = '👤';
+                document.getElementById('headerAvatar').innerHTML = '<i class="fas fa-user"></i>';
                 document.getElementById('sidebarName').textContent = 'مهمان';
                 document.getElementById('sidebarPhone').textContent = 'وارد حساب کاربری شوید';
-                document.getElementById('sidebarAvatar').textContent = '👤';
+                document.getElementById('sidebarAvatar').innerHTML = '<i class="fas fa-user"></i>';
             }
         }
 
-        function addNotification(text) {
+        function addNotification(text, userId = null) {
             const time = new Date().toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' });
-            notifications.unshift({ text, time, id: Date.now() });
-            if (notifications.length > 20) notifications.pop();
+            const notif = { text, time, id: Date.now(), userId: userId || (authUser ? authUser.id : null), read: false };
+            notifications.unshift(notif);
+            if (notifications.length > 50) notifications.pop();
             localStorage.setItem('digitalize_notifications', JSON.stringify(notifications));
             renderNotifications();
+
+            // ارسال به پنل ادمین
+            if (authUser) {
+                let adminNotifs = JSON.parse(localStorage.getItem('admin_notifications') || '[]');
+                adminNotifs.unshift({
+                    id: Date.now(),
+                    title: 'اعلان کاربر',
+                    message: notif.text,
+                    userId: notif.userId,
+                    date: new Date().toLocaleString('fa-IR')
+                });
+                if (adminNotifs.length > 100) adminNotifs.pop();
+                localStorage.setItem('admin_notifications', JSON.stringify(adminNotifs));
+            }
         }
 
         function renderNotifications() {
             const container = document.getElementById('sidebarNotifications');
             const badge = document.getElementById('notifBadge');
-            notifCount = notifications.length;
+
+            let userNotifs = notifications;
+            if (authUser) {
+                userNotifs = notifications.filter(n => n.userId === authUser.id || n.userId === null);
+            } else {
+                userNotifs = notifications.filter(n => n.userId === null);
+            }
+
+            notifCount = userNotifs.filter(n => !n.read).length;
             badge.textContent = notifCount > 0 ? notifCount : '0';
 
-            if (notifications.length === 0) {
-                container.innerHTML = '<div class="notif-item">🔔 هیچ اعلانی وجود ندارد</div>';
+            if (userNotifs.length === 0) {
+                container.innerHTML = '<div class="notif-item"><i class="fas fa-bell-slash"></i> هیچ اعلانی وجود ندارد</div>';
                 return;
             }
 
-            container.innerHTML = notifications.map(n => `
-                        <div class="notif-item">
-                            <span>${n.text}</span>
+            container.innerHTML = userNotifs.map(n => `
+                        <div class="notif-item" style="${n.read ? 'opacity:0.6;' : ''}">
+                            <span><i class="fas fa-bell"></i> ${n.text}</span>
                             <span class="time">${n.time}</span>
                         </div>
                     `).join('');
         }
 
         function toggleNotifications() {
-            // نمایش اعلان‌ها در سایدبار
             if (!document.getElementById('sidebar').classList.contains('open')) {
                 toggleSidebar();
             }
-            // اسکرول به بخش اعلان‌ها
             setTimeout(() => {
                 const notifSection = document.querySelector('.sidebar-notif');
                 if (notifSection) notifSection.scrollIntoView({ behavior: 'smooth' });
+                notifications.forEach(n => { if (n.userId === authUser?.id || n.userId === null) n.read = true; });
+                localStorage.setItem('digitalize_notifications', JSON.stringify(notifications));
+                renderNotifications();
             }, 400);
         }
 
@@ -1707,24 +1092,47 @@
                 document.getElementById('authMsg').textContent = `📱 کد تایید ۶ رقمی به شماره ${phone} ارسال شد.`;
                 document.getElementById('authMsg').style.color = 'var(--success)';
                 console.log('📱 کد OTP:', otpCode);
-                // ارسال به اعلان‌ها
+
+                const tempUser = { username, phone, id: Date.now() };
+                localStorage.setItem('temp_user', JSON.stringify(tempUser));
+
                 addNotification(`📱 کد تایید ${otpCode} به شماره ${phone} ارسال شد`);
                 return;
             }
 
             if (otpInput === otpCode) {
-                authUser = { username, phone };
-                localStorage.setItem('digitalize_user', JSON.stringify(authUser));
-                updateUserUI();
-                closeModal('authModal');
-                document.getElementById('authMsg').textContent = '✅ ورود با موفقیت انجام شد!';
-                document.getElementById('authMsg').style.color = 'var(--success)';
-                addNotification(`👤 کاربر ${username} وارد شد`);
-                document.getElementById('authForm').reset();
-                document.getElementById('otpGroup').style.display = 'none';
-                document.getElementById('authBtn').textContent = '📱 دریافت کد تایید';
-                document.getElementById('authOtp').value = '';
-                setTimeout(() => { document.getElementById('authMsg').textContent = ''; }, 3000);
+                const tempUser = JSON.parse(localStorage.getItem('temp_user'));
+                if (tempUser) {
+                    authUser = { username: tempUser.username, phone: tempUser.phone, id: tempUser.id };
+                    localStorage.setItem('digitalize_user', JSON.stringify(authUser));
+                    localStorage.removeItem('temp_user');
+                    updateUserUI();
+                    closeModal('authModal');
+
+                    // ثبت در پنل ادمین
+                    let adminUsers = JSON.parse(localStorage.getItem('admin_users') || '[]');
+                    if (!adminUsers.find(u => u.id === authUser.id)) {
+                        adminUsers.push({
+                            id: authUser.id,
+                            name: authUser.username,
+                            username: authUser.username,
+                            phone: authUser.phone,
+                            role: 'USER',
+                            status: 'active',
+                            date: new Date().toLocaleString('fa-IR')
+                        });
+                        localStorage.setItem('admin_users', JSON.stringify(adminUsers));
+                    }
+
+                    document.getElementById('authMsg').textContent = '✅ ورود با موفقیت انجام شد!';
+                    document.getElementById('authMsg').style.color = 'var(--success)';
+                    addNotification(`👤 کاربر ${username} وارد شد`, authUser.id);
+                    document.getElementById('authForm').reset();
+                    document.getElementById('otpGroup').style.display = 'none';
+                    document.getElementById('authBtn').textContent = '📱 دریافت کد تایید';
+                    document.getElementById('authOtp').value = '';
+                    setTimeout(() => { document.getElementById('authMsg').textContent = ''; }, 3000);
+                }
             } else {
                 document.getElementById('authMsg').textContent = '❌ کد تایید اشتباه است. دوباره تلاش کنید.';
                 document.getElementById('authMsg').style.color = 'var(--danger)';
@@ -1743,7 +1151,151 @@
         renderNotifications();
 
         // ============================================================
-        // 6. سبد خرید
+        // 6. بارگذاری داده‌ها از پنل ادمین
+        // ============================================================
+        let productsData = [];
+        let servicesData = [];
+        let portfolioData = [];
+
+        function loadData() {
+            // بارگذاری محصولات
+            let products = JSON.parse(localStorage.getItem('admin_products') || '[]');
+            if (products.length === 0) {
+                products = [
+                    { id: 1, name: 'سایت فروشگاهی حرفه‌ای', price: 48500000, category: 'سایت', desc: 'سایت کامل فروشگاهی با پنل مدیریت، درگاه پرداخت و سیستم پیگیری سفارش', status: 'active' },
+                    { id: 2, name: 'اپلیکیشن موبایل', price: 32000000, category: 'اپلیکیشن', desc: 'اپلیکیشن اندروید و iOS با طراحی اختصاصی و تجربه کاربری عالی', status: 'active' },
+                    { id: 3, name: 'اپلیکیشن دسکتاپ', price: 28500000, category: 'اپلیکیشن', desc: 'اپلیکیشن ویندوز، مک و لینوکس با عملکرد بالا و رابط کاربری زیبا', status: 'active' },
+                    { id: 4, name: 'قالب لاکچری اختصاصی', price: 12500000, category: 'قالب', desc: 'قالب اختصاصی با طراحی فوق‌مدرن، واکنش‌گرا و بهینه برای سئو', status: 'active' },
+                    { id: 5, name: 'سئو پیشرفته', price: 9800000, category: 'سئو', desc: 'خدمات کامل سئو، بهینه‌سازی داخلی و خارجی، تولید محتوا و لینک‌سازی', status: 'active' },
+                    { id: 6, name: 'ربات هوشمند', price: 18000000, category: 'ربات', desc: 'ربات پشتیبانی هوشمند با هوش مصنوعی، پاسخگویی خودکار ۲۴/۷', status: 'active' }
+                ];
+                localStorage.setItem('admin_products', JSON.stringify(products));
+            }
+            productsData = products;
+
+            // بارگذاری خدمات
+            let services = JSON.parse(localStorage.getItem('admin_services') || '[]');
+            if (services.length === 0) {
+                services = [
+                    { id: 1, name: 'طراحی سایت', icon: 'fa-globe', desc: 'سایت حرفه‌ای، واکنش‌گرا و بهینه برای موبایل با بالاترین کیفیت' },
+                    { id: 2, name: 'اپلیکیشن موبایل', icon: 'fa-mobile-alt', desc: 'اندروید و iOS با تجربه کاربری عالی و طراحی مدرن' },
+                    { id: 3, name: 'اپلیکیشن دسکتاپ', icon: 'fa-desktop', desc: 'ویندوز، مک و لینوکس با عملکرد بالا و پنل مدیریت' },
+                    { id: 4, name: 'فروش قالب آماده', icon: 'fa-palette', desc: 'قالب‌های اختصاصی و لاکچری برای وب‌سایت با قیمت مناسب' },
+                    { id: 5, name: 'سئو و بازاریابی', icon: 'fa-search', desc: 'بهبود رتبه گوگل و جذب ترافیک هدفمند برای کسب‌وکار شما' },
+                    { id: 6, name: 'ربات پشتیبانی', icon: 'fa-robot', desc: 'پاسخ‌گویی خودکار و هوشمند در روبیکا و تلگرام' }
+                ];
+                localStorage.setItem('admin_services', JSON.stringify(services));
+            }
+            servicesData = services;
+
+            // بارگذاری نمونه‌کارها
+            let portfolio = JSON.parse(localStorage.getItem('admin_portfolio') || '[]');
+            if (portfolio.length === 0) {
+                portfolio = [
+                    { id: 1, title: 'فروشگاه محصولات ارگانیک', category: 'فروشگاهی', desc: 'سایت فروشگاهی با پرداخت آنلاین' },
+                    { id: 2, title: 'سایت مدیریت هتل و هتل‌داری', category: 'شرکتی', desc: 'مدیریت هتل به صورت الکترونیکی' },
+                    { id: 3, title: 'اپلیکیشن فروشگاه آنلاین', category: 'اپلیکیشن', desc: 'تبدیل سایت به اپلیکیشن حرفه‌ای' },
+                    { id: 4, title: 'سایت آپلود فایل', category: 'پنلمحور', desc: 'آپلود فایل و دریافت لینک با پنل مدیریت' }
+                ];
+                localStorage.setItem('admin_portfolio', JSON.stringify(portfolio));
+            }
+            portfolioData = portfolio;
+
+            renderProducts();
+            renderServices();
+            renderPortfolio();
+        }
+
+        // ============================================================
+        // 7. رندر محصولات
+        // ============================================================
+        function renderProducts() {
+            const container = document.getElementById('productsGrid');
+            const activeProducts = productsData.filter(p => p.status === 'active');
+
+            if (activeProducts.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted); text-align:center; padding:40px 0;"><i class="fas fa-box-open"></i> هیچ محصولی موجود نیست.</p>';
+                return;
+            }
+
+            container.innerHTML = activeProducts.map(p => `
+                        <div class="product-card">
+                            <div class="image" style="background:linear-gradient(135deg,#6c5ce7,#fd79a8);">
+                                ${p.category}
+                                <button class="qr-btn" onclick="showQR('${p.name}','${p.price.toLocaleString()} تومان','${p.desc}')"><i class="fas fa-qrcode"></i></button>
+                            </div>
+                            <div class="content">
+                                <h3>${p.name}</h3>
+                                <p class="desc">${p.desc}</p>
+                                <div class="price">${p.price.toLocaleString()} <span class="old-price">${Math.round(p.price * 1.35).toLocaleString()}</span></div>
+                                <button class="btn btn-primary btn-sm btn-block add-to-cart" style="margin-top:12px;" data-name="${p.name}" data-price="${p.price}"><i class="fas fa-plus"></i> افزودن به سبد خرید</button>
+                            </div>
+                        </div>
+                    `).join('');
+
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const name = this.dataset.name;
+                    const price = this.dataset.price;
+                    addToCart(name, price);
+                });
+            });
+        }
+
+        // ============================================================
+        // 8. رندر خدمات
+        // ============================================================
+        function renderServices() {
+            const container = document.getElementById('servicesGrid');
+
+            if (servicesData.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted); text-align:center; padding:40px 0;"><i class="fas fa-concierge-bell"></i> هیچ خدمتی موجود نیست.</p>';
+                return;
+            }
+
+            container.innerHTML = servicesData.map(s => `
+                        <div class="service-card">
+                            <span class="service-icon"><i class="fas ${s.icon}"></i></span>
+                            <h3>${s.name}</h3>
+                            <p>${s.desc}</p>
+                        </div>
+                    `).join('');
+        }
+
+        // ============================================================
+        // 9. رندر نمونه‌کارها
+        // ============================================================
+        function renderPortfolio() {
+            const container = document.getElementById('portfolioGrid');
+
+            if (portfolioData.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted); text-align:center; padding:40px 0;"><i class="fas fa-images"></i> هیچ نمونه‌کاری موجود نیست.</p>';
+                return;
+            }
+
+            const categoryColors = {
+                'فروشگاهی': 'var(--success)',
+                'شرکتی': 'var(--accent)',
+                'اپلیکیشن': 'var(--warning)',
+                'پنلمحور': 'var(--info)'
+            };
+
+            container.innerHTML = portfolioData.map(p => `
+                        <div class="portfolio-card">
+                            <div class="portfolio-image" style="background:${categoryColors[p.category] || 'var(--accent)'};">
+                                ${p.category}
+                            </div>
+                            <div class="portfolio-content">
+                                <h4>${p.title}</h4>
+                                <p>${p.desc}</p>
+                                <span class="badge badge-primary">${p.category}</span>
+                            </div>
+                        </div>
+                    `).join('');
+        }
+
+        // ============================================================
+        // 10. سبد خرید
         // ============================================================
         let cart = JSON.parse(localStorage.getItem('digitalize_cart')) || [];
 
@@ -1753,9 +1305,9 @@
             const totalEl = document.getElementById('cartTotal');
 
             if (cart.length === 0) {
-                container.innerHTML = '<p style="color:var(--text-secondary);">سبد خرید شما خالی است.</p>';
+                container.innerHTML = '<p style="color:var(--text-secondary);"><i class="fas fa-info-circle"></i> سبد خرید شما خالی است.</p>';
                 summary.innerHTML = '<p style="color:var(--text-secondary);">هیچ محصولی در سبد خرید نیست.</p>';
-                totalEl.textContent = '۰ تومان';
+                totalEl.textContent = '0 تومان';
                 return;
             }
 
@@ -1764,7 +1316,7 @@
             cart.forEach((item, i) => {
                 const price = parseInt(item.price);
                 total += price;
-                html += `<div class="cart-item"><span>${item.name}</span><span>${price.toLocaleString()} تومان</span><button class="btn btn-danger btn-sm" onclick="removeFromCart(${i})">حذف</button></div>`;
+                html += `<div class="cart-item"><span>${item.name}</span><span>${price.toLocaleString()} تومان</span><button class="btn btn-danger btn-sm" onclick="removeFromCart(${i})"><i class="fas fa-trash"></i> حذف</button></div>`;
             });
             container.innerHTML = html;
             summary.innerHTML = `<p>تعداد اقلام: <strong>${cart.length}</strong></p>`;
@@ -1775,7 +1327,7 @@
             cart.push({ name, price: String(price) });
             localStorage.setItem('digitalize_cart', JSON.stringify(cart));
             renderCart();
-            addNotification(`🛒 ${name} به سبد خرید اضافه شد`);
+            addNotification(`🛒 ${name} به سبد خرید اضافه شد`, authUser?.id);
             alert(`${name} به سبد خرید اضافه شد!`);
         }
 
@@ -1784,17 +1336,11 @@
             cart.splice(index, 1);
             localStorage.setItem('digitalize_cart', JSON.stringify(cart));
             renderCart();
-            addNotification(`🗑️ ${name} از سبد خرید حذف شد`);
+            addNotification(`🗑️ ${name} از سبد خرید حذف شد`, authUser?.id);
         }
 
-        document.querySelectorAll('.add-to-cart').forEach(btn => {
-            btn.addEventListener('click', function() {
-                addToCart(this.dataset.name, this.dataset.price);
-            });
-        });
-
         // ============================================================
-        // 7. پرداخت پیشرفته
+        // 11. پرداخت پیشرفته
         // ============================================================
         let paymentOtp = '';
         let transactionId = '';
@@ -1827,7 +1373,7 @@
             const cardName = document.getElementById('cardName').value.trim();
 
             if (cardNumber.length !== 16) {
-                document.getElementById('paymentMsg').textContent = '❌ شماره کارت باید ۱۶ رقم باشد.';
+                document.getElementById('paymentMsg').textContent = '❌ شماره کارت باید 16 رقم باشد.';
                 document.getElementById('paymentMsg').style.color = 'var(--danger)';
                 return;
             }
@@ -1837,7 +1383,7 @@
                 return;
             }
             if (cvv.length < 3 || cvv.length > 4) {
-                document.getElementById('paymentMsg').textContent = '❌ CVV2 باید ۳ یا ۴ رقم باشد.';
+                document.getElementById('paymentMsg').textContent = '❌ CVV2 باید 3 یا 4 رقم باشد.';
                 document.getElementById('paymentMsg').style.color = 'var(--danger)';
                 return;
             }
@@ -1858,7 +1404,7 @@
             document.getElementById('paymentOtp').value = '';
 
             console.log('📱 کد OTP پرداخت:', paymentOtp);
-            addNotification(`🔐 کد تایید پرداخت ${paymentOtp} ارسال شد`);
+            addNotification(`🔐 کد تایید پرداخت ${paymentOtp} ارسال شد`, authUser?.id);
         }
 
         function verifyPayment() {
@@ -1878,7 +1424,21 @@
 
                 document.getElementById('screenshotSection').style.display = 'block';
 
-                addNotification(`✅ پرداخت ${total.toLocaleString()} تومان با موفقیت انجام شد`);
+                // ثبت سفارش در پنل ادمین
+                let orders = JSON.parse(localStorage.getItem('admin_orders') || '[]');
+                orders.unshift({
+                    id: Date.now(),
+                    name: authUser.username,
+                    phone: authUser.phone,
+                    service: 'خرید محصولات',
+                    desc: productNames,
+                    total: total,
+                    status: 'paid',
+                    date: new Date().toLocaleString('fa-IR')
+                });
+                localStorage.setItem('admin_orders', JSON.stringify(orders));
+
+                addNotification(`✅ پرداخت ${total.toLocaleString()} تومان با موفقیت انجام شد`, authUser.id);
 
                 cart = [];
                 localStorage.setItem('digitalize_cart', JSON.stringify(cart));
@@ -1894,7 +1454,7 @@
         }
 
         // ============================================================
-        // 8. دانلود رسید
+        // 12. دانلود رسید
         // ============================================================
         function downloadReceipt() {
             const area = document.getElementById('screenshotArea');
@@ -1907,7 +1467,7 @@
                 link.download = `رسید_پرداخت_${transactionId}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
-                addNotification(`📥 رسید پرداخت دانلود شد`);
+                addNotification(`📥 رسید پرداخت دانلود شد`, authUser?.id);
             }).catch(() => {
                 const content = document.getElementById('screenshotContent').innerHTML;
                 const blob = new Blob([`<html><body style="font-family:system-ui;padding:40px;max-width:600px;margin:auto;">${content}</body></html>`],
@@ -1920,7 +1480,7 @@
         }
 
         // ============================================================
-        // 9. QR Code
+        // 13. QR Code
         // ============================================================
         let currentQR = null;
 
@@ -1954,14 +1514,14 @@
                 link.download = 'QRCode.png';
                 link.href = canvas.toDataURL('image/png');
                 link.click();
-                addNotification(`📱 QR Code دانلود شد`);
+                addNotification(`📱 QR Code دانلود شد`, authUser?.id);
             } else {
                 alert('لطفاً ابتدا QR Code را تولید کنید.');
             }
         }
 
         // ============================================================
-        // 10. پشتیبانی هوشمند
+        // 14. پشتیبانی هوشمند
         // ============================================================
         function handleSupport() {
             const input = document.getElementById('supportInput');
@@ -1974,8 +1534,8 @@
             }
 
             const reply = getReply(q);
-            response.innerHTML = '🤖 ' + reply;
-            addNotification(`💬 سوال: ${q}`);
+            response.innerHTML = '<i class="fas fa-robot"></i> ' + reply;
+            addNotification(`💬 سوال: ${q}`, authUser?.id);
             input.value = '';
         }
 
@@ -1983,11 +1543,11 @@
             const lower = q.toLowerCase();
             if (lower.includes('قیمت') || lower.includes('هزینه') || lower.includes('چقدر')) {
                 if (lower.includes('سایت') || lower.includes('وب')) {
-                    return '💰 هزینه طراحی سایت از ۵ میلیون تومان شروع می‌شود. قیمت نهایی بسته به پیچیدگی پروژه تعیین می‌شود.';
+                    return '💰 هزینه طراحی سایت از 5 میلیون تومان شروع می‌شود. قیمت نهایی بسته به پیچیدگی پروژه تعیین می‌شود.';
                 } else if (lower.includes('اپ') || lower.includes('اپلیکیشن') || lower.includes('موبایل')) {
-                    return '📱 هزینه طراحی اپلیکیشن موبایل از ۱۲ میلیون تومان و دسکتاپ از ۸ میلیون تومان شروع می‌شود.';
+                    return '📱 هزینه طراحی اپلیکیشن موبایل از 12 میلیون تومان و دسکتاپ از 8 میلیون تومان شروع می‌شود.';
                 } else if (lower.includes('قالب') || lower.includes('تم')) {
-                    return '🎨 قالب‌های آماده از ۱.۵ میلیون تومان شروع می‌شوند. قالب‌های اختصاصی با قیمت توافقی.';
+                    return '🎨 قالب‌های آماده از 1.5 میلیون تومان شروع می‌شوند. قالب‌های اختصاصی با قیمت توافقی.';
                 }
                 return '💰 قیمت‌ها بر اساس نوع پروژه متفاوت است. لطفاً مشخص کنید به چه خدماتی نیاز دارید.';
             }
@@ -1995,16 +1555,16 @@
                 return '🎯 نمونه‌کارهای ما در بخش "محصولات" سایت قابل مشاهده است.';
             }
             if (lower.includes('زمان') || lower.includes('مدت') || lower.includes('تحویل')) {
-                return '⏳ زمان تحویل پروژه‌ها معمولاً بین ۷ تا ۲۱ روز کاری است.';
+                return '⏳ زمان تحویل پروژه‌ها معمولاً بین 7 تا 21 روز کاری است.';
             }
-             if (lower.includes('ربات') || lower.includes('پشتیبانی') || lower.includes('چیست')) {
-                return '🤖 ربات پشتیبانی ما در روبیکا با شناسه @digitalize_bot فعال است و ۲۴/۷ پاسخگوی شماست.';
+            if (lower.includes('ربات') || lower.includes('پشتیبانی') || lower.includes('چیست')) {
+                return '🤖 ربات پشتیبانی ما در روبیکا با شناسه @digitalize_bot فعال است و 24/7 پاسخگوی شماست.';
             }
             if (lower.includes('تخفیف') || lower.includes('ویژه') || lower.includes('مسابقه')) {
-                return '🎁 مسابقات تخفیفی در شهریور: ۵۰٪ تخفیف ساخت ربات و ۴۰٪ تخفیف ساخت سایت.';
+                return '🎁 مسابقات تخفیفی در شهریور: 50% تخفیف ساخت ربات و 40% تخفیف ساخت سایت.';
             }
-            if (lower.includes('سئو برای کسب و کار ما') || lower.includes('قیمت ان چقدر است') || lower.includes('چه می کند')) {
-                return '🔍 خدمات سئو شامل بهینه‌سازی داخلی و خارجی، تولید محتوا و لینک‌سازی است. سئو یکی از کارهایی است که شما می توانید با داشتن ان سایت خود را در نتایج گوگل بهبود ببخشید. هزینه از ۳ میلیون تومان شروع می‌شود.';
+            if (lower.includes('سئو') || lower.includes('بهینه') || lower.includes('گوگل')) {
+                return '🔍 خدمات سئو شامل بهینه‌سازی داخلی و خارجی، تولید محتوا و لینک‌سازی است. هزینه از 3 میلیون تومان شروع می‌شود.';
             }
             if (lower.includes('سلام') || lower.includes('درود') || lower.includes('خوبی')) {
                 return '👋 سلام! وقت بخیر. چطور می‌توانم به شما کمک کنم؟';
@@ -2023,7 +1583,7 @@
         });
 
         // ============================================================
-        // 11. فرم ثبت سفارش (با ارسال به پنل ادمین)
+        // 15. فرم ثبت سفارش
         // ============================================================
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -2035,67 +1595,49 @@
                 return;
             }
 
-            // ============================================================
-            // 🔥 ارسال پیام به پنل ادمین (با localStorage)
-            // ============================================================
-            function sendMessageToPanel(name, phone, email, message) {
-                let messages = JSON.parse(localStorage.getItem('admin_messages') || '[]');
-                messages.push({
-                    id: Date.now(),
-                    name: name,
-                    phone: phone,
-                    email: email || '',
-                    message: message,
-                    date: new Date().toLocaleString('fa-IR')
-                });
-                localStorage.setItem('admin_messages', JSON.stringify(messages));
-            }
-
-            const service = document.getElementById('service').value;
-            const desc = document.getElementById('desc').value.trim();
-            const email = document.getElementById('email').value.trim();
-
-            // ارسال به پنل ادمین
-            sendMessageToPanel(name, phone, email, `نوع خدمات: ${service}\nتوضیحات: ${desc}`);
-
-            // ذخیره در localStorage (برای خود سایت)
-            const data = {
-                name, phone, email, service, desc,
+            // ارسال سفارش به پنل ادمین
+            let orders = JSON.parse(localStorage.getItem('admin_orders') || '[]');
+            orders.unshift({
+                id: Date.now(),
+                name: name,
+                phone: phone,
+                email: document.getElementById('email').value.trim(),
+                service: document.getElementById('service').value,
+                desc: document.getElementById('desc').value.trim(),
+                status: 'pending',
                 date: new Date().toLocaleString('fa-IR')
-            };
-            let orders = JSON.parse(localStorage.getItem('digitalize_orders') || '[]');
-            orders.push(data);
-            localStorage.setItem('digitalize_orders', JSON.stringify(orders));
+            });
+            localStorage.setItem('admin_orders', JSON.stringify(orders));
 
             document.getElementById('orderMsg').textContent = '✅ سفارش شما با موفقیت ثبت شد!';
             document.getElementById('orderMsg').style.color = 'var(--success)';
-            addNotification(`📋 سفارش جدید از ${name} ثبت شد`);
+            addNotification(`📋 سفارش جدید از ${name} ثبت شد`, authUser?.id);
             this.reset();
         });
 
         // ============================================================
-        // 12. دکمه نصب
+        // 16. دکمه نصب
         // ============================================================
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            document.getElementById('installBtn').classList.add('show');
+            document.getElementById('installBtn').style.display = 'flex';
         });
         document.getElementById('installBtn').addEventListener('click', async () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const result = await deferredPrompt.userChoice;
                 if (result.outcome === 'accepted') {
-                    document.getElementById('installBtn').classList.remove('show');
-                    addNotification('📲 اپلیکیشن با موفقیت نصب شد');
+                    document.getElementById('installBtn').style.display = 'none';
+                    addNotification('📲 اپلیکیشن با موفقیت نصب شد', authUser?.id);
                 }
                 deferredPrompt = null;
             }
         });
 
         // ============================================================
-        // 13. تنظیمات ورودی‌ها
+        // 17. تنظیمات ورودی‌ها
         // ============================================================
         document.getElementById('cardNumber').addEventListener('input', function() {
             let val = this.value.replace(/\D/g, '');
@@ -2119,8 +1661,9 @@
         });
 
         // ============================================================
-        // 14. بارگذاری اولیه
+        // 18. بارگذاری اولیه
         // ============================================================
+        loadData();
         renderCart();
         showPage('home');
     </script>
