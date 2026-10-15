@@ -1,23 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
   <url>
-    <loc>https://alireza8051.github.io/digitalize/</loc>
+    <loc>https://commint.ir/Digitalize.html</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- بخش‌های دیگر -->
+  
   <url>
-    <loc>https://alireza8051.github.io/digitalize/#products</loc>
+    <loc>https://commint.ir/Digitalize.html#products</loc>
     <priority>0.9</priority>
   </url>
+  
   <url>
-    <loc>https://alireza8051.github.io/digitalize/#portfolio</loc>
+    <loc>https://commint.ir/Digitalize.html#portfolio</loc>
     <priority>0.9</priority>
   </url>
+  
   <url>
-    <loc>https://alireza8051.github.io/digitalize/#blog</loc>
+    <loc>https://commint.ir/Digitalize.html#blog</loc>
     <priority>0.9</priority>
   </url>
-  <!-- ... -->
+  
+  <url>
+    <loc>https://commint.ir/Digitalize.html#tutorials</loc>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://commint.ir/Digitalize.html#pricing</loc>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://commint.ir/Digitalize.html#team</loc>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://commint.ir/Digitalize.html#testimonials</loc>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://commint.ir/Digitalize.html#faq</loc>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://commint.ir/Digitalize.html#contact</loc>
+    <priority>0.8</priority>
+  </url>
+  
 </urlset>
