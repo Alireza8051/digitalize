@@ -1,3 +1,51 @@
+# ═══════════════════════════════════════
+# دیجیتالایز - robots.txt
+# ═══════════════════════════════════════
+
+# ─── موتورهای جستجو ───
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# ─── ربات‌های AI (برای GEO) ───
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ─── ربات‌های اسکرپر (ممنوع) ───
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+# ─── اجازه عمومی ───
 User-agent: *
 Allow: /
-Sitemap: https://alireza8051.github.io/digitalize/sitemap.xml
+Disallow: /private/
+Disallow: /admin/
+
+# ─── Sitemap ───
+Sitemap: https://commint.ir/sitemap.xml
