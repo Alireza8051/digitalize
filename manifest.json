@@ -1,0 +1,27 @@
+{
+  "name": "دیجیتالایز - مرکز خدمات دیجیتال",
+  "short_name": "دیجیتالایز",
+  "description": "بزرگ‌ترین مرکز خدمات دیجیتال ایران با ۳۰۰ ویژگی",
+  "start_url": "/Digitalize.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0f1e",
+  "theme_color": "#2563eb",
+  "lang": "fa",
+  "dir": "rtl",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "محصولات", "url": "/Digitalize.html#products" },
+    { "name": "بلاگ", "url": "/Digitalize.html#blog" },
+    { "name": "تماس", "url": "/Digitalize.html#contact" }
+  ]
+}
