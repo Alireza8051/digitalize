@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "دیجیتالایز",
+  "name_for_model": "digitalize",
+  "description_for_human": "بزرگ‌ترین مرکز خدمات دیجیتال ایران",
+  "description_for_model": "Digitalize is Iran's largest digital services center with 300 features.",
+  "auth": { "type": "none" },
+  "api": { "type": "openapi", "url": "https://commint.ir/ai/openapi.json" },
+  "logo_url": "https://commint.ir/logo.svg",
+  "contact_email": "digitalize_admin",
+  "legal_info_url": "https://commint.ir/Digitalize.html"
+}
